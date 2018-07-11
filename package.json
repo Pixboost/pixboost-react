@@ -1,0 +1,31 @@
+{
+  "name": "pixboost-react",
+  "version": "0.0.1",
+  "description": "React library to integrate with pixboost api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir lib --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pixboost/pixboost-react.git"
+  },
+  "keywords": [
+    "pixboost"
+  ],
+  "author": "Pixboost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pixboost/pixboost-react/issues"
+  },
+  "homepage": "https://github.com/Pixboost/pixboost-react#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "lozad": "^1.4.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1"
+  }
+}
