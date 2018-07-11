@@ -15,7 +15,7 @@ class Image extends Component {
   }
 
   render() {
-    const {config, src, alt, op, lazy} = this.props;
+    const {config, src, alt, op, lazy, ...otherProps} = this.props;
     const imgAttrs = {};
     const imgSrc = `//${config.domain}/api/2/img/${src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
 
@@ -29,7 +29,7 @@ class Image extends Component {
     }
 
     return (
-      <img {...imgSrc} ref={this.imgRef}/>
+      <img {...imgAttrs} {...otherProps} ref={this.imgRef}/>
     );
   }
 }
@@ -46,4 +46,4 @@ Image.defaultProps = {
   lazy: true
 };
 
-export default {Image};
+export default Image;
