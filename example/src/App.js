@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Image from 'pixboost-react/lib/components/Image';
+import {Image} from 'pixboost-react';
 
 class App extends Component {
   render() {

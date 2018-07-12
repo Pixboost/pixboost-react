@@ -2,7 +2,7 @@
   "name": "pixboost-react",
   "version": "0.0.2",
   "description": "React library to integrate with pixboost api",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
     "lib/components",
     "lib/index.js"
