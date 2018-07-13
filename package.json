@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "test": "jest --ci ./__tests__/",
-    "test:update": "jest --updateSnapshot src/__tests__",
+    "test:update": "jest --updateSnapshot ./__tests__/",
     "lint": "eslint ./src ./__tests__",
     "build": "cross-env BABEL_ENV=build babel src --out-dir lib --copy-files",
     "prepare": "npm run build"

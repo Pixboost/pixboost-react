@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picture should render when not lazy 1`] = `
+<picture>
+  <source
+    media="(min-width: 640px)"
+    srcset="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcset="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <img
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;
+
+exports[`Picture should render with alt attribute 1`] = `
+<picture>
+  <source
+    media="(min-width: 640px)"
+    srcset="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcset="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <source
+    alt="YO!"
+    srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;
+
+exports[`Picture should render with minimum parameters 1`] = `
+<picture>
+  <source
+    media="(min-width: 640px)"
+    srcset="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcset="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <source
+    srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;
