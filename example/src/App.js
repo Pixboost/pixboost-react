@@ -5,6 +5,7 @@ import {Image} from 'pixboost-react';
 
 class App extends Component {
   render() {
+    const pixboostConfig = {apiKey: 'MTg4MjMxMzM3MA__', domain: 'pixboost.com'};
     return (
       <div className="App">
         <header className="App-header">
@@ -16,9 +17,16 @@ class App extends Component {
                alt={'glass'}
                lazy={false}
                op={'optimise'}
-               config={{apiKey: 'MTg4MjMxMzM3MA__', domain: 'pixboost.com'}}
+               config={pixboostConfig}
                className="TopImage"
         />
+        <div className={'Spacer'}>
+          Scroll down to see lazy image
+        </div>
+        <Image src={'https://cdn.pixabay.com/photo/2016/05/10/15/29/bear-1383980_960_720.jpg'}
+               alt={'lazy bear'}
+               op={'resize?size=200'}
+               config={pixboostConfig}/>
       </div>
     );
   }

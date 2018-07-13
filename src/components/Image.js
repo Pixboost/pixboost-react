@@ -10,17 +10,17 @@ class Image extends Component {
 
   componentDidMount() {
     if (this.props.lazy) {
-      lozad(this.imgRef).observe();
+      lozad(this.imgRef.current).observe();
     }
   }
 
   render() {
     const {config, src, alt, op, lazy, ...otherProps} = this.props;
     const imgAttrs = {};
-    const imgSrc = `//${config.domain}/api/2/img/${src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
+    const imgSrc = `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
 
     if (lazy) {
-      imgAttrs['data-lazy'] = imgSrc;
+      imgAttrs['data-src'] = imgSrc;
     } else {
       imgAttrs['src'] = imgSrc;
     }
@@ -43,7 +43,8 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
-  lazy: true
+  lazy: true,
+  op: 'optimise'
 };
 
 export default Image;

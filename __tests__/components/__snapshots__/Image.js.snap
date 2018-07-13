@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should render with alt text 1`] = `
+<img
+  alt="yo!"
+  data-src="https://test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
+/>
+`;
+
+exports[`Image should render with domain that don't have scheme 1`] = `
+<img
+  data-src="//test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
+/>
+`;
+
+exports[`Image should render with lazy loading disabled 1`] = `
+<img
+  src="https://test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
+/>
+`;
+
+exports[`Image should render with minimum parameters 1`] = `
+<img
+  data-src="https://test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
+/>
+`;
+
+exports[`Image should render with operation that have arguments 1`] = `
+<img
+  data-src="https://test.com/api/2/img/https://image.here.com/logo.png/fit?size=100x200&auth=abc123"
+/>
+`;
