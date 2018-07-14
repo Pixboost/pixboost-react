@@ -2,8 +2,10 @@
   "name": "example",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://midday.coffee/react-demo",
   "dependencies": {
-    "pixboost-react": "^0.0.7",
+    "core-js": "^2.5.7",
+    "pixboost-react": "^0.0.8",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
