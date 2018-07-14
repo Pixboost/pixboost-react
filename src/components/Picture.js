@@ -33,7 +33,8 @@ class Picture extends Component {
           const bp = breakpoints[b];
 
           if (!bpConfig) {
-            console.warn(`pixboost-picture: Can't find breakpoint config for ${b}`);
+            // eslint-disable-next-line no-console
+            console.warn(`pixboost-react: Can't find breakpoint config for ${b}`);
             return;
           }
           if (!bpConfig.media) {
@@ -42,17 +43,17 @@ class Picture extends Component {
           }
 
           return (
-            <source key={b} media={bpConfig.media} srcset={Picture.bpSrc(config, bp)}/>
+            <source key={b} media={bpConfig.media} srcSet={Picture.bpSrc(config, bp)}/>
           );
         })}
         {defaultBp && !lazy &&
           <img src={Picture.bpSrc(config, defaultBp)} alt={alt}/>
         }
         {defaultBp && lazy &&
-          <source srcset={Picture.bpSrc(config, defaultBp)} alt={alt}/>
+          <source srcSet={Picture.bpSrc(config, defaultBp)} alt={alt}/>
         }
       </picture>
-    )
+    );
   }
 }
 
