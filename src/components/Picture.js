@@ -13,6 +13,11 @@ class Picture extends Component {
       lozad(this.pictureRef.current, {
         threshold: 0.01,
         rootMargin: '40px 0px 0px 0px',
+        loaded: () => {
+          if (window.picturefill && typeof window.picturefill === 'function') {
+            window.picturefill();
+          }
+        }
       }).observe();
     }
   }
@@ -31,6 +36,7 @@ class Picture extends Component {
     let defaultBp;
     return (
       <picture {...rest} ref={this.pictureRef}>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
         {Object.keys(breakpoints).map(b => {
           const bpConfig = config.breakpoints[b];
           const bp = breakpoints[b];
@@ -49,6 +55,7 @@ class Picture extends Component {
             <source key={b} media={bpConfig.media} srcSet={Picture.bpSrc(config, bp)}/>
           );
         })}
+        <!--[if IE 9]></video><![endif]-->
         {defaultBp && !lazy &&
           <img src={Picture.bpSrc(config, defaultBp)} alt={alt}/>
         }
