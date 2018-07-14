@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Image} from 'pixboost-react';
-import Picture from '../../src/components/Picture';
+import {Image, Picture} from 'pixboost-react';
 
 class App extends Component {
   render() {
@@ -43,6 +42,14 @@ class App extends Component {
                alt={'lazy bear'}
                op={'resize?size=200'}
                config={pixboostConfig}/>
+        <Picture alt={"lazy picture"} breakpoints={
+          {
+            lg: {src: 'https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_960_720.jpg'},
+            md: {src: 'https://cdn.pixabay.com/photo/2015/02/02/15/28/bar-621033_960_720.jpg', op: 'fit?size=300x300'},
+            sm: {src: 'https://cdn.pixabay.com/photo/2016/12/09/11/33/smartphone-1894723__340.jpg'}
+          }
+        } config={pixboostConfig}/>
+
       </div>
     );
   }
