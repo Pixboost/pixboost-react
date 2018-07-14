@@ -39,12 +39,12 @@ describe('Picture', () => {
     expect(
       renderer.create(
         <Picture config={testConfig}
-                 lazy={false}
-                 breakpoints={{
-                   sm: {hide: true},
-                   md: {src: 'https://here.com/logo.png', op: 'resize?size=200'},
-                   lg: {src: 'https://here.com/logo-large.png'}
-                 }}
+          lazy={false}
+          breakpoints={{
+            sm: {hide: true},
+            md: {src: 'https://here.com/logo.png', op: 'resize?size=200'},
+            lg: {src: 'https://here.com/logo-large.png'}
+          }}
         />
       ).toJSON()
     ).toMatchSnapshot();
@@ -54,12 +54,12 @@ describe('Picture', () => {
     expect(
       renderer.create(
         <Picture config={testConfig}
-                 alt={'YO!'}
-                 breakpoints={{
-                   sm: {hide: true},
-                   md: {src: 'https://here.com/logo.png', op: 'resize?size=200'},
-                   lg: {src: 'https://here.com/logo-large.png'}
-                 }}
+          alt={'YO!'}
+          breakpoints={{
+            sm: {hide: true},
+            md: {src: 'https://here.com/logo.png', op: 'resize?size=200'},
+            lg: {src: 'https://here.com/logo-large.png'}
+          }}
         />
       ).toJSON()
     ).toMatchSnapshot();
