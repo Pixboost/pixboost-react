@@ -9,7 +9,6 @@ Table of Contents:
 * [Usage](#usage)
     * [Responsive images](#responsive-images)
     * [Non-responsive images](#non-responsive-images)
-    * [Lazy Loading](#lazy-loading)
 * [Browsers Support](#browsers-support)
 * [Build](#build)
 

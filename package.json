@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "files": [
     "lib/components",
+    "lib/util.js",
     "lib/index.js"
   ],
   "scripts": {

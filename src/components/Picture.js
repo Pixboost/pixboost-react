@@ -1,6 +1,21 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import lozad from 'lozad';
+import {getBrowser} from '../util';
+
+const browser = getBrowser();
+
+const IE9Wrapper = (props) => {
+  const isIE9 = browser.name === 'MSIE' && browser.version === '9';
+
+  if (isIE9) {
+    return <video style={{display: 'none'}}>
+      {props.children}
+    </video>;
+  }
+
+  return props.children;
+};
 
 class Picture extends Component {
   constructor(props) {
@@ -36,26 +51,26 @@ class Picture extends Component {
     let defaultBp;
     return (
       <picture {...rest} ref={this.pictureRef}>
-        <!--[if IE 9]><video style="display: none;"><![endif]-->
-        {Object.keys(breakpoints).map(b => {
-          const bpConfig = config.breakpoints[b];
-          const bp = breakpoints[b];
+        <IE9Wrapper>
+          {Object.keys(breakpoints).map(b => {
+            const bpConfig = config.breakpoints[b];
+            const bp = breakpoints[b];
 
-          if (!bpConfig) {
+            if (!bpConfig) {
             // eslint-disable-next-line no-console
-            console.warn(`pixboost-react: Can't find breakpoint config for ${b}`);
-            return;
-          }
-          if (!bpConfig.media) {
-            defaultBp = bp;
-            return;
-          }
+              console.warn(`pixboost-react: Can't find breakpoint config for ${b}`);
+              return;
+            }
+            if (!bpConfig.media) {
+              defaultBp = bp;
+              return;
+            }
 
-          return (
-            <source key={b} media={bpConfig.media} srcSet={Picture.bpSrc(config, bp)}/>
-          );
-        })}
-        <!--[if IE 9]></video><![endif]-->
+            return (
+              <source key={b} media={bpConfig.media} srcSet={Picture.bpSrc(config, bp)}/>
+            );
+          })}
+        </IE9Wrapper>
         {defaultBp && !lazy &&
           <img src={Picture.bpSrc(config, defaultBp)} alt={alt}/>
         }

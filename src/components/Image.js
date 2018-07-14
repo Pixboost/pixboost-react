@@ -9,12 +9,12 @@ class Image extends Component {
   }
 
   componentDidMount() {
-      if (this.props.lazy) {
-          lozad(this.imgRef.current, {
-              threshold: 0.01,
-              rootMargin: '40px 0px 0px 0px',
-          }).observe();
-      }
+    if (this.props.lazy) {
+      lozad(this.imgRef.current, {
+        threshold: 0.01,
+        rootMargin: '40px 0px 0px 0px',
+      }).observe();
+    }
   }
 
   render() {
