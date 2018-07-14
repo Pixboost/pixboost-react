@@ -10,7 +10,10 @@ class Picture extends Component {
 
   componentDidMount() {
     if (this.props.lazy) {
-      lozad(this.pictureRef.current).observe();
+      lozad(this.pictureRef.current, {
+        threshold: 0.01,
+        rootMargin: '40px 0px 0px 0px',
+      }).observe();
     }
   }
 
