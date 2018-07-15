@@ -1,0 +1,58 @@
+{
+  "name": "pixboost-react",
+  "version": "0.0.8",
+  "description": "React library to integrate with pixboost api",
+  "main": "lib/index.js",
+  "files": [
+    "lib/components",
+    "lib/util.js",
+    "lib/index.js"
+  ],
+  "scripts": {
+    "test": "jest --ci ./__tests__/",
+    "test:update": "jest --updateSnapshot ./__tests__/",
+    "lint": "eslint ./src ./__tests__",
+    "lint:fix": "eslint --fix ./src ./__tests__",
+    "ci": "npm-run-all lint test",
+    "build": "cross-env BABEL_ENV=build babel src --out-dir lib --copy-files",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pixboost/pixboost-react.git"
+  },
+  "keywords": [
+    "pixboost"
+  ],
+  "author": "Pixboost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pixboost/pixboost-react/issues"
+  },
+  "homepage": "https://github.com/Pixboost/pixboost-react#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^5.1.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.0",
+    "npm-run-all": "^4.1.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-test-renderer": "^16.4.1"
+  },
+  "dependencies": {
+    "lozad": "^1.4.0"
+  },
+  "peerDependencies": {
+    "react": "> 14.0.0"
+  }
+}
