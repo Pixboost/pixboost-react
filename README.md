@@ -2,28 +2,32 @@
 
 [![Build Status](https://travis-ci.org/Pixboost/pixboost-react.svg?branch=master)](https://travis-ci.org/Pixboost/pixboost-react)
 
-Library for integrating pixboost into the react applications.
+Library for integrating pixboost API into the react applications.
 
 Table of Contents:
 
 * [Usage](#usage)
     * [Responsive images](#responsive-images)
     * [Non-responsive images](#non-responsive-images)
+    * [Configuration Object](#configuration-object)
 * [Browsers Support](#browsers-support)
 * [Build](#build)
 
 ## Usage
 
-To install library:
+To install the library:
 
 ```bash
 npm install --save pixboost-react
 ```
 
-There are two component that's library provides: Image for standard images and Picture for 
-responsive images. 
+There are two component that's library provides: 
+* Image for standard images 
+* Picture for responsive images. 
 
-Library supports React 14+ applications.
+Library supports React version 14+.
+
+
 
 ### Responsive images
 
@@ -115,17 +119,30 @@ Properties (mandatory properties marked with *):
 | alt              | String  |          | alt text for an image |
 | lazy             | Boolean | true     | If true, then will enable lazy loading for the image. |
 
+### Configuration object
+
+| Property          | Type    | Default  |Description           | 
+| ------------------|---------|----------|----------------------|
+| apiKey*           | String  |          | Pixboost API key |
+| domain*           | String  |          | Custom domain name that you setup or pixboost.com |
+| breakpoints       | Object  |          | Key-Value pair of breakpoints that you are using for responsive images |
+| breakpoints.media | String  |          | Media query for breakpoint |
+
+
 ## Browsers Support
 
 The library supports all major browsers including Chrome, Firefox, Safari and Internet Explorer.
 Internet Explorer 9 requires polyfill for `<picture>` implementations. We are recommending to use
-[picturefill](http://scottjehl.github.io/picturefill/) version 3. Pixboost-js has integration with
-it and will call `window.picturefill()` once replacements are done. 
+[picturefill](http://scottjehl.github.io/picturefill/) version 3. You can include it from our CDN:
+
+```html
+    <script src="https://pixboost.com/libs/picturefill.min.js" async></script> 
+``` 
 
 Lazy loading is using [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) 
 feature that supports by all [major browsers](https://caniuse.com/#search=intersectionObserver) 
-except Safari. You can use polyfill, but make sure that you are doing thorough testing 
-(see more details in [lazy loading](#lazy-loading) section).
+except Safari. You can use polyfill, but make sure that you are doing thorough testing as we found some problems with absolute
+positioned layouts.
 
 ## Build
 
