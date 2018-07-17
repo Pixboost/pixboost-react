@@ -1,4 +1,8 @@
 function getBrowser() {
+  if (typeof window === 'undefined') {
+    return {};
+  }
+
   const ua=window.navigator.userAgent;
   let tem;
   let M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
