@@ -27,16 +27,38 @@
   to { transform: rotate(360deg); }
 }
 
-.ImagesWrapper {
-  padding: 20px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.card-img-top {
+  height: 200px;
   width: 100%;
-  max-width: 100%;
 }
 
-.Spacer {
-  border: 1px dashed red;
-  min-height: 2000px;
+.img-wrapper img{
+  height: 200px;
+  width: 100%;
+}
+
+.card h5 {
+  height: 50px;
+}
+.card {
+  margin-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    height: auto;
+  }
+  .img-wrapper img {
+    height: 150px;
+  }
+  .card-body {
+    height: 180px;
+  }
+  .search-form {
+    display: none;
+  }
 }
