@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import lozad from 'lozad';
+import lozad from '../lozad';
 
 class Image extends Component {
   constructor(props) {
