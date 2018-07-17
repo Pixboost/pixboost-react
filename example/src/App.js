@@ -38,7 +38,7 @@ class App extends Component {
                                     <div className="col-md-4 col-lg-3 col-6">
                                         <div className="card">
                                             <div className="img-wrapper">
-                                                <Picture className={'card-img-top'} breakpoints={{
+                                                <Picture className={'card-img-top'} data-alt={c.Name} breakpoints={{
                                                     lg: {
                                                         src: c.Image,
                                                         op: 'resize?size=x200'
