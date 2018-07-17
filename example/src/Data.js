@@ -116,7 +116,7 @@ const Cups = [
     Image: 'http://www.midday.coffee/assets/cups/smile-2001662__340.jpg',
   },
   {
-    Name:  'Classic 2',
+    Name:  'Classic 3',
     Price: 5.99,
     Image: 'http://www.midday.coffee/assets/cups/tea-cup-2107599__340.jpg',
   },

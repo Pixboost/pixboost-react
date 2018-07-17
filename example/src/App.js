@@ -35,10 +35,10 @@ class App extends Component {
                         {
                             Cups.map(c => {
                                 return (
-                                    <div className="col-md-4 col-lg-3 col-6">
+                                    <div className="col-md-4 col-lg-3 col-6" key={c.Name}>
                                         <div className="card">
                                             <div className="img-wrapper">
-                                                <Picture className={'card-img-top'} data-alt={c.Name} breakpoints={{
+                                                <Picture className={'card-img-top'} alt={c.Name} breakpoints={{
                                                     lg: {
                                                         src: c.Image,
                                                         op: 'resize?size=x200'
