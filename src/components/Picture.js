@@ -50,7 +50,7 @@ class Picture extends Component {
     const {config, breakpoints, alt, lazy, ...rest} = this.props;
     let defaultBp;
     return (
-      <picture {...rest} ref={this.pictureRef}>
+      <picture {...rest} data-alt={alt} ref={this.pictureRef}>
         <IE9Wrapper>
           {Object.keys(breakpoints).map(b => {
             const bpConfig = config.breakpoints[b];
@@ -75,7 +75,7 @@ class Picture extends Component {
           <img src={Picture.bpSrc(config, defaultBp)} alt={alt}/>
         }
         {defaultBp && lazy &&
-          <source srcSet={Picture.bpSrc(config, defaultBp)} alt={alt}/>
+          <source srcSet={Picture.bpSrc(config, defaultBp)}/>
         }
       </picture>
     );

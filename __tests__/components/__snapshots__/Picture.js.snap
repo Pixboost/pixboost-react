@@ -17,7 +17,9 @@ exports[`Picture should render when not lazy 1`] = `
 `;
 
 exports[`Picture should render with alt attribute 1`] = `
-<picture>
+<picture
+  data-alt="YO!"
+>
   <source
     media="(min-width: 640px)"
     srcSet="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
@@ -27,7 +29,6 @@ exports[`Picture should render with alt attribute 1`] = `
     srcSet="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
   />
   <source
-    alt="YO!"
     srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   />
 </picture>
