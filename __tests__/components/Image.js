@@ -2,7 +2,7 @@ import Image from '../../src/components/Image';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-jest.mock('lozad', () => {
+jest.mock('../../src/lozad', () => {
   return jest.fn().mockImplementation(() => {
     return {
       observe: () => {}
