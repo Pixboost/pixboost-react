@@ -24,6 +24,7 @@ class Image extends Component {
 
     if (lazy) {
       imgAttrs['data-src'] = imgSrc;
+      imgAttrs['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
     } else {
       imgAttrs['src'] = imgSrc;
     }
