@@ -38,6 +38,9 @@ class Picture extends Component {
   }
 
   static bpSrc(config, bp) {
+    if (bp.src && bp.src.indexOf('data:') === 0) {
+      return bp.src;
+    }
     if (bp.hide) {
       return 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
     }

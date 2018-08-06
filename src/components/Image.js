@@ -20,7 +20,9 @@ class Image extends Component {
   render() {
     const {config, src, alt, op, lazy, ...otherProps} = this.props;
     const imgAttrs = {};
-    const imgSrc = `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
+    const imgSrc = src.indexOf('data:') === 0 ?
+        src :
+        `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
 
     if (lazy) {
       imgAttrs['data-src'] = imgSrc;

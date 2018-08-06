@@ -64,4 +64,19 @@ describe('Picture', () => {
       ).toJSON()
     ).toMatchSnapshot();
   });
+
+  it('should not apply URL transformation for data: sources', () => {
+    expect(
+      renderer.create(
+        <Picture config={testConfig}
+          alt={'YO!'}
+          breakpoints={{
+            sm: {hide: true},
+            md: {src: 'data:ABCDEF', op: 'resize?size=200'},
+            lg: {src: 'https://here.com/logo-large.png'}
+          }}
+        />
+      ).toJSON()
+    ).toMatchSnapshot();
+  });
 });

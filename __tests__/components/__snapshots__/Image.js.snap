@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Image should not apply URL transformation for data: sources 1`] = `
+<img
+  data-src="data:ABCDEF"
+  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+/>
+`;
+
 exports[`Image should render with alt text 1`] = `
 <img
   alt="yo!"

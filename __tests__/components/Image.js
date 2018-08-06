@@ -45,4 +45,10 @@ describe('Image', () => {
       renderer.create(<Image src={'https://image.here.com/logo.png'} config={testConfig} op={'fit?size=100x200'}/>).toJSON()
     ).toMatchSnapshot();
   });
+
+  it('should not apply URL transformation for data: sources', () => {
+    expect(
+        renderer.create(<Image src={'data:ABCDEF'} config={testConfig} op={'fit?size=100x200'}/>).toJSON()
+    ).toMatchSnapshot();
+  });
 });

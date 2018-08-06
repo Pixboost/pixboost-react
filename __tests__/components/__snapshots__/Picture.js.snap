@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Picture should not apply URL transformation for data: sources 1`] = `
+<picture
+  data-alt="YO!"
+>
+  <source
+    media="(min-width: 640px)"
+    srcSet="data:ABCDEF"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcSet="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <source
+    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;
+
 exports[`Picture should render when not lazy 1`] = `
 <picture>
   <source
