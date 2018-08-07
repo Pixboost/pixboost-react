@@ -59,4 +59,10 @@ describe('Image', () => {
       renderer.create(<Image src={'data:ABCDEF'} config={testConfig} op={'fit?size=100x200'}/>, testRendererOptions).toJSON()
     ).toMatchSnapshot();
   });
+
+  it('should replace source that starts with // to https://', () => {
+    expect(
+      renderer.create(<Image src={'//image.here.com/logo.png'} config={testConfig} op={'fit?size=100x200'}/>, testRendererOptions).toJSON()
+    ).toMatchSnapshot();
+  });
 });

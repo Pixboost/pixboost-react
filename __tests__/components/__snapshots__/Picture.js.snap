@@ -67,3 +67,21 @@ exports[`Picture should render with minimum parameters 1`] = `
   />
 </picture>
 `;
+
+exports[`Picture should replace source that starts with // to https:// 1`] = `
+<picture
+  data-alt="YO!"
+>
+  <source
+    media="(min-width: 640px)"
+    srcSet="https://test.com/api/2/img/about://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcSet="https://test.com/api/2/img/about://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <source
+    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import lozad from '../lozad';
-import {getBrowser, isElementInViewport} from '../util';
+import {getBrowser, isElementInViewport, sourceWithProtocol} from '../util';
 
 const browser = getBrowser();
 
@@ -56,7 +56,7 @@ class Picture extends Component {
     }
     const op = bp.op || 'optimise';
 
-    return `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${bp.src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
+    return `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${sourceWithProtocol(bp.src)}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
   }
 
   render() {

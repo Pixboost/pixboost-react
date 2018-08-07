@@ -24,6 +24,9 @@ function getBrowser() {
 }
 
 function isElementInViewport(el) {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return false;
+  }
 
   const rect = el.getBoundingClientRect();
 
@@ -35,4 +38,16 @@ function isElementInViewport(el) {
   );
 }
 
-export {getBrowser, isElementInViewport};
+function sourceWithProtocol(src) {
+  if (typeof window === 'undefined') {
+    return src;
+  }
+
+  if (src.indexOf('//') === 0) {
+    return `${window.location.protocol}${src}`;
+  }
+
+  return src;
+}
+
+export {getBrowser, isElementInViewport, sourceWithProtocol};

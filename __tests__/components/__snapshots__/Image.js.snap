@@ -41,3 +41,10 @@ exports[`Image should render with operation that have arguments 1`] = `
   src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
 />
 `;
+
+exports[`Image should replace source that starts with // to https:// 1`] = `
+<img
+  data-src="https://test.com/api/2/img/about://image.here.com/logo.png/fit?size=100x200&auth=abc123"
+  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+/>
+`;
