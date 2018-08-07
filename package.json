@@ -1,6 +1,6 @@
 {
   "name": "pixboost-react",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "React library to integrate with pixboost api",
   "main": "lib/index.js",
   "files": [
