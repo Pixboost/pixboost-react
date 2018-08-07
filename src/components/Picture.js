@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import lozad from '../lozad';
-import {getBrowser} from '../util';
+import {getBrowser, isElementInViewport} from '../util';
 
 const browser = getBrowser();
 
@@ -25,7 +25,8 @@ class Picture extends Component {
 
   componentDidMount() {
     if (this.props.lazy) {
-      lozad(this.pictureRef.current, {
+      const el = this.pictureRef.current;
+      const lozadInstance = lozad(el, {
         threshold: 0.01,
         rootMargin: '40px 0px 0px 0px',
         loaded: () => {
@@ -33,7 +34,16 @@ class Picture extends Component {
             window.picturefill();
           }
         }
-      }).observe();
+      });
+
+      if (isElementInViewport(el)) {
+        lozadInstance.triggerLoad(el);
+        if (window.picturefill && typeof window.picturefill === 'function') {
+          window.picturefill();
+        }
+      } else {
+        lozadInstance.observe();
+      }
     }
   }
 

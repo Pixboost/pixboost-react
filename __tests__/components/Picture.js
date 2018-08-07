@@ -10,6 +10,14 @@ jest.mock('../../src/lozad', () => {
   });
 });
 
+const testRendererOptions = {
+  createNodeMock: (element) => {
+    return {
+      getBoundingClientRect: () => { return {} }
+    };
+  }
+};
+
 const testConfig = {
   domain: 'https://test.com',
   apiKey: 'abc123',
@@ -30,7 +38,7 @@ describe('Picture', () => {
             md: {src: 'https://here.com/logo.png', op: 'resize?size=200'},
             lg: {src: 'https://here.com/logo-large.png'}
           }}
-        />
+        />, testRendererOptions
       ).toJSON()
     ).toMatchSnapshot();
   });
@@ -45,7 +53,7 @@ describe('Picture', () => {
             md: {src: 'https://here.com/logo.png', op: 'resize?size=200'},
             lg: {src: 'https://here.com/logo-large.png'}
           }}
-        />
+        />, testRendererOptions
       ).toJSON()
     ).toMatchSnapshot();
   });
@@ -60,7 +68,7 @@ describe('Picture', () => {
             md: {src: 'https://here.com/logo.png', op: 'resize?size=200'},
             lg: {src: 'https://here.com/logo-large.png'}
           }}
-        />
+        />, testRendererOptions
       ).toJSON()
     ).toMatchSnapshot();
   });
@@ -75,7 +83,7 @@ describe('Picture', () => {
             md: {src: 'data:ABCDEF', op: 'resize?size=200'},
             lg: {src: 'https://here.com/logo-large.png'}
           }}
-        />
+        />, testRendererOptions
       ).toJSON()
     ).toMatchSnapshot();
   });

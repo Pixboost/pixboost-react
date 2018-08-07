@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import lozad from '../lozad';
+import {isElementInViewport} from '../util';
 
 class Image extends Component {
   constructor(props) {
@@ -10,10 +11,16 @@ class Image extends Component {
 
   componentDidMount() {
     if (this.props.lazy) {
-      lozad(this.imgRef.current, {
+      const el = this.imgRef.current;
+      const lozadInstance = lozad(el, {
         threshold: 0.01,
         rootMargin: '40px 0px 0px 0px',
-      }).observe();
+      });
+      if (isElementInViewport(el)) {
+        lozadInstance.triggerLoad(el);
+      } else {
+        lozadInstance.observe();
+      }
     }
   }
 
@@ -21,8 +28,8 @@ class Image extends Component {
     const {config, src, alt, op, lazy, ...otherProps} = this.props;
     const imgAttrs = {};
     const imgSrc = src.indexOf('data:') === 0 ?
-        src :
-        `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
+      src :
+      `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${src}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
 
     if (lazy) {
       imgAttrs['data-src'] = imgSrc;
