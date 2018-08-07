@@ -11,9 +11,9 @@ jest.mock('../../src/lozad', () => {
 });
 
 const testRendererOptions = {
-  createNodeMock: (element) => {
+  createNodeMock: () => {
     return {
-      getBoundingClientRect: () => { return {} }
+      getBoundingClientRect: () => { return {}; }
     };
   }
 };
