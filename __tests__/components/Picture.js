@@ -92,12 +92,12 @@ describe('Picture', () => {
     expect(
       renderer.create(
         <Picture config={testConfig}
-                 alt={'YO!'}
-                 breakpoints={{
-                   sm: {hide: true},
-                   md: {src: '//here.com/logo.png', op: 'resize?size=200'},
-                   lg: {src: '//here.com/logo-large.png'}
-                 }}
+          alt={'YO!'}
+          breakpoints={{
+            sm: {hide: true},
+            md: {src: '//here.com/logo.png', op: 'resize?size=200'},
+            lg: {src: '//here.com/logo-large.png'}
+          }}
         />, testRendererOptions
       ).toJSON()
     ).toMatchSnapshot();
