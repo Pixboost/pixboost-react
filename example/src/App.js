@@ -25,13 +25,27 @@ class App extends Component {
                 </nav>
 
                 <div className={'container'}>
-                    <div className="jumbotron">
-                        <div className="container text-center">
-                            <h1 className="display-4">Find Your Coffee Cup</h1>
+                    <div className="banner">
+                        <Picture
+                            alt={'coffee beans'}
+                            breakpoints={{
+                                lg: {
+                                    src: 'http://www.midday.coffee/assets/banner.jpg',
+                                    op: 'optimise'
+                                },
+                                sm: {
+                                    src: 'http://www.midday.coffee/assets/banner.jpg',
+                                    op: 'fit?size=400x400'
+                                }
+                            }}
+                            config={pixboostConfig}
+                        />
+                        <div className="text">
+                            <p className="h1 display-4">Find Your Coffee Cup</p>
                             <p className="lead">We have them all in one place!</p>
                         </div>
                     </div>
-                    <div className={'row'}>
+                    <div className="row text-center">
                         {
                             Cups.map(c => {
                                 return (
