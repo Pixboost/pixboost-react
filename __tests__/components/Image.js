@@ -24,6 +24,10 @@ const testConfig = {
 };
 
 describe('Image', () => {
+  it('should not crash when dont have expected parameters', () => {
+    renderer.create(<Image src={undefined} config={undefined}/>, testRendererOptions)
+  });
+
   it('should render with minimum parameters', () => {
     expect(
       renderer.create(<Image src={'https://image.here.com/logo.png'} config={testConfig}/>, testRendererOptions).toJSON()

@@ -39,7 +39,7 @@ function isElementInViewport(el) {
 }
 
 function sourceWithProtocol(src) {
-  if (typeof window === 'undefined') {
+  if (typeof window === 'undefined' || !src) {
     return src;
   }
 

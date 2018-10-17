@@ -29,6 +29,20 @@ const testConfig = {
 };
 
 describe('Picture', () => {
+  it(`should not crash if one of the breakpoints don't have source`, () => {
+    expect(
+      renderer.create(
+        <Picture config={testConfig}
+                 breakpoints={{
+                   sm: {},
+                   md: {src: undefined, op: 'resize?size=200'},
+                   lg: {src: 'https://here.com/logo-large.png'}
+                 }}
+        />, testRendererOptions
+      ).toJSON()
+    ).toMatchSnapshot();
+  });
+
   it('should render with minimum parameters', () => {
     expect(
       renderer.create(

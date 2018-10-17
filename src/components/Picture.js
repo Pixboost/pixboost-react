@@ -48,11 +48,12 @@ class Picture extends Component {
   }
 
   static bpSrc(config, bp) {
-    if (bp.src && bp.src.indexOf('data:') === 0) {
-      return bp.src;
-    }
-    if (bp.hide) {
+    if (bp.hide || !bp.src) {
       return 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+    }
+
+    if (bp.src.indexOf('data:') === 0) {
+      return bp.src;
     }
     const op = bp.op || 'optimise';
 
@@ -61,6 +62,11 @@ class Picture extends Component {
 
   render() {
     const {config, breakpoints, alt, lazy, ...rest} = this.props;
+
+    if (!config) {
+      return null;
+    }
+
     let defaultBp;
     return (
       <picture {...rest} data-alt={alt} ref={this.pictureRef}>

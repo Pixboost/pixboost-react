@@ -10,6 +10,10 @@ class Image extends Component {
   }
 
   componentDidMount() {
+    if (!this.imgRef.current) {
+      return;
+    }
+
     if (this.props.lazy) {
       const el = this.imgRef.current;
       const lozadInstance = lozad(el, {
@@ -26,6 +30,11 @@ class Image extends Component {
 
   render() {
     const {config, src, alt, op, lazy, ...otherProps} = this.props;
+
+    if (!src || !config) {
+      return null;
+    }
+
     const imgAttrs = {};
     const imgSrc = src.indexOf('data:') === 0 ?
       src :
