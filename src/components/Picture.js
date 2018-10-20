@@ -23,7 +23,25 @@ class Picture extends Component {
     this.pictureRef = React.createRef();
   }
 
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
+      if (this.pictureRef.current) {
+        this.pictureRef.current.removeAttribute('data-loaded');
+      }
+
+      this.setupLazyLoad();
+    }
+  }
+
   componentDidMount() {
+    this.setupLazyLoad();
+  }
+
+  setupLazyLoad() {
+    if (!this.pictureRef.current) {
+      return;
+    }
+
     if (this.props.lazy) {
       const el = this.pictureRef.current;
       const lozadInstance = lozad(el, {

@@ -10,6 +10,19 @@ class Image extends Component {
   }
 
   componentDidMount() {
+    this.setupLazyLoad();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
+      if (this.imgRef.current) {
+        this.imgRef.current.removeAttribute('data-loaded');
+      }
+      this.setupLazyLoad();
+    }
+  }
+
+  setupLazyLoad() {
     if (!this.imgRef.current) {
       return;
     }
