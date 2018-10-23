@@ -1,12 +1,16 @@
 import Picture from '../../src/components/Picture';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {mount} from 'enzyme';
+
+const mockLozad = {
+  observe: jest.fn(),
+  triggerLoad: jest.fn()
+};
 
 jest.mock('../../src/lozad', () => {
   return jest.fn().mockImplementation(() => {
-    return {
-      observe: () => {}
-    };
+    return mockLozad;
   });
 });
 
@@ -29,15 +33,20 @@ const testConfig = {
 };
 
 describe('Picture', () => {
-  it(`should not crash if one of the breakpoints don't have source`, () => {
+  beforeEach(() => {
+    mockLozad.observe.mockClear();
+    mockLozad.triggerLoad.mockClear();
+  });
+
+  it('should not crash if one of the breakpoints don\'t have source', () => {
     expect(
       renderer.create(
         <Picture config={testConfig}
-                 breakpoints={{
-                   sm: {},
-                   md: {src: undefined, op: 'resize?size=200'},
-                   lg: {src: 'https://here.com/logo-large.png'}
-                 }}
+          breakpoints={{
+            sm: {},
+            md: {src: undefined, op: 'resize?size=200'},
+            lg: {src: 'https://here.com/logo-large.png'}
+          }}
         />, testRendererOptions
       ).toJSON()
     ).toMatchSnapshot();
@@ -115,5 +124,25 @@ describe('Picture', () => {
         />, testRendererOptions
       ).toJSON()
     ).toMatchSnapshot();
+  });
+
+  it('should setup lazy loading when props changed', () => {
+    const picture = mount(<Picture config={testConfig}
+      alt={'YO!'}
+      breakpoints={{
+        sm: {hide: true},
+        md: {src: '//here.com/logo.png', op: 'resize?size=200'},
+        lg: {src: '//here.com/logo-large.png'}
+      }}/>
+    );
+    expect(mockLozad.triggerLoad).toHaveBeenCalledTimes(1);
+
+    picture.setProps({
+      breapoints: {
+        md: {src: '//here.com/new-logo.png', op: 'resize?size=200'}
+      }
+    });
+
+    expect(mockLozad.triggerLoad).toHaveBeenCalledTimes(2);
   });
 });

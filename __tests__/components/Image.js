@@ -1,12 +1,16 @@
 import Image from '../../src/components/Image';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {mount} from 'enzyme/build';
+
+const mockLozad = {
+  observe: jest.fn(),
+  triggerLoad: jest.fn()
+};
 
 jest.mock('../../src/lozad', () => {
   return jest.fn().mockImplementation(() => {
-    return {
-      observe: () => {}
-    };
+    return mockLozad;
   });
 });
 
@@ -24,8 +28,13 @@ const testConfig = {
 };
 
 describe('Image', () => {
+  beforeEach(() => {
+    mockLozad.observe.mockClear();
+    mockLozad.triggerLoad.mockClear();
+  });
+
   it('should not crash when dont have expected parameters', () => {
-    renderer.create(<Image src={undefined} config={undefined}/>, testRendererOptions)
+    renderer.create(<Image src={undefined} config={undefined}/>, testRendererOptions);
   });
 
   it('should render with minimum parameters', () => {
@@ -69,4 +78,16 @@ describe('Image', () => {
       renderer.create(<Image src={'//image.here.com/logo.png'} config={testConfig} op={'fit?size=100x200'}/>, testRendererOptions).toJSON()
     ).toMatchSnapshot();
   });
+
+  it('should setup lazy loading when props changed', () => {
+    const image = mount(<Image src={'//image.here.com/logo.png'} config={testConfig} op={'fit?size=100x200'}/>);
+    expect(mockLozad.triggerLoad).toHaveBeenCalledTimes(1);
+
+    image.setProps({
+      src: '//newimage.here.com'
+    });
+
+    expect(mockLozad.triggerLoad).toHaveBeenCalledTimes(2);
+  });
+
 });
