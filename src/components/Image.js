@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import lozad from '../lozad';
-import {isElementInViewport, sourceWithProtocol} from '../util';
+import {isElementInViewport, prepareSource} from '../util';
 
 class Image extends Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class Image extends Component {
     const imgAttrs = {};
     const imgSrc = src.indexOf('data:') === 0 ?
       src :
-      `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${sourceWithProtocol(src)}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
+      `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${prepareSource(src)}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
 
     if (lazy) {
       imgAttrs['data-src'] = imgSrc;

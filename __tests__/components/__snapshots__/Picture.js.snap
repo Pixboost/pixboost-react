@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Picture should encode sources that have query params 1`] = `
+<picture
+  data-alt="YO!"
+>
+  <source
+    media="(min-width: 640px)"
+    srcSet="https://test.com/api/2/img/http:%2F%2Fhere.com%2Flogo.png%3Fparam%3D1/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcSet="https://test.com/api/2/img/http:%2F%2Fhere.com%2Flogo-large.png%3Fparam%3D2/optimise?auth=abc123"
+  />
+  <source
+    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;
+
 exports[`Picture should not apply URL transformation for data: sources 1`] = `
 <picture
   data-alt="YO!"
@@ -90,11 +108,11 @@ exports[`Picture should replace source that starts with // to https:// 1`] = `
 >
   <source
     media="(min-width: 640px)"
-    srcSet="https://test.com/api/2/img/about://here.com/logo.png/resize?size=200&auth=abc123"
+    srcSet="https://test.com/api/2/img/http://here.com/logo.png/resize?size=200&auth=abc123"
   />
   <source
     media="(min-width: 990px)"
-    srcSet="https://test.com/api/2/img/about://here.com/logo-large.png/optimise?auth=abc123"
+    srcSet="https://test.com/api/2/img/http://here.com/logo-large.png/optimise?auth=abc123"
   />
   <source
     srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="

@@ -90,4 +90,10 @@ describe('Image', () => {
     expect(mockLozad.triggerLoad).toHaveBeenCalledTimes(2);
   });
 
+  it('should encode image source if it has query params', () => {
+    expect(
+      renderer.create(<Image src={'//image.here.com/logo.png?param=1'} config={testConfig} op={'fit?size=100x200'}/>, testRendererOptions).toJSON()
+    ).toMatchSnapshot();
+  });
+
 });

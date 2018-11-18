@@ -38,16 +38,18 @@ function isElementInViewport(el) {
   );
 }
 
-function sourceWithProtocol(src) {
+function prepareSource(src) {
   if (typeof window === 'undefined' || !src) {
     return src;
   }
 
+  let encodedSrc = src.indexOf('?') >= 0 ? encodeURIComponent(src) : src;
+
   if (src.indexOf('//') === 0) {
-    return `${window.location.protocol}${src}`;
+    return `${window.location.protocol}${encodedSrc}`;
   }
 
-  return src;
+  return encodedSrc;
 }
 
-export {getBrowser, isElementInViewport, sourceWithProtocol};
+export {getBrowser, isElementInViewport, prepareSource};
