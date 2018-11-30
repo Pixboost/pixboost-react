@@ -23,16 +23,6 @@ class Picture extends Component {
     this.pictureRef = React.createRef();
   }
 
-  componentDidUpdate(prevProps) {
-    if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
-      if (this.pictureRef.current) {
-        this.pictureRef.current.removeAttribute('data-loaded');
-      }
-
-      this.setupLazyLoad();
-    }
-  }
-
   componentDidMount() {
     this.setupLazyLoad();
   }

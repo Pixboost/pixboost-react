@@ -143,7 +143,7 @@ describe('Picture', () => {
       }
     });
 
-    expect(mockLozad.triggerLoad).toHaveBeenCalledTimes(2);
+    expect(mockLozad.triggerLoad).toHaveBeenCalledTimes(1);
   });
 
   it('should encode sources that have query params', () => {
