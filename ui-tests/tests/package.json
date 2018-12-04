@@ -7,7 +7,8 @@
     "start-selenium": "selenium-standalone start",
     "chrome-only": "hermione --set chrome",
     "update": "hermione --update-refs",
-    "test": "hermione"
+    "test": "hermione",
+    "gui": "hermione gui"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "chai": "^4.2.0",
     "gemini": "^6.0.0",
     "hermione": "^1.0.0",
+    "html-reporter": "^3.0.2",
     "selenium-standalone": "^6.15.4"
   }
 }

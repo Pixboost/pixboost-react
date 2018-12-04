@@ -13,6 +13,7 @@ describe('Image', function() {
       .assertView('plain', '.js-app');
   });
 
+  hermione.skip.in('ie', `IE doesn't support intersection observer`);
   it('lazy', function() {
     return this.browser
       .url('http://localhost:3000/image/lazy')
@@ -27,5 +28,12 @@ describe('Image', function() {
       });
   });
 
+  it('lazy image with source update', function() {
+    return this.browser
+      .url('http://localhost:3000/image/lazy-update')
+      .assertView('initial', '.js-app')
+      .click('button')
+      .assertView('updated', '.js-app');
+  });
 
 });
