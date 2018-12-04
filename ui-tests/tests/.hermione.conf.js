@@ -1,7 +1,11 @@
 module.exports = {
   sets: {
-    pixboost: {
+    all: {
       files: 'src'
+    },
+    chrome: {
+      files: 'src',
+      browsers: ['chrome']
     }
   },
 
@@ -16,11 +20,11 @@ module.exports = {
         browserName: 'firefox'
       }
     },
-    ie: {
-      desiredCapabilities: {
-        browserName: 'internet explorer'
-      }
-    },
+    // ie: {
+    //   desiredCapabilities: {
+    //     browserName: 'internet explorer'
+    //   }
+    // },
     // edge: {
     //   desiredCapabilities: {
     //     browserName: 'MicrosoftEdge'

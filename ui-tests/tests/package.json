@@ -5,6 +5,7 @@
   "scripts": {
     "install": "selenium-standalone install",
     "start-selenium": "selenium-standalone start",
+    "chrome-only": "hermione --set chrome",
     "update": "hermione --update-refs",
     "test": "hermione"
   },
