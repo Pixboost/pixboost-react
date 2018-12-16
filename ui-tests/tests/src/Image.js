@@ -29,10 +29,16 @@ describe('Image', function() {
   });
 
   it('lazy image with source update', function() {
+    const browser = this.browser;
     return this.browser
       .url('http://localhost:3000/image/lazy-update')
       .assertView('initial', '.js-app')
       .click('button')
+      .waitUntil(function() {
+        return browser.getAttribute('img', 'src').then(attr => {
+          return attr === 'http://pixboost.com/api/2/img/http://www.midday.coffee/assets/cup.jpeg/optimise?auth=MTg4MjMxMzM3MA__'
+        });
+      }, 3000, 'expected to update image source')
       .assertView('updated', '.js-app');
   });
 
