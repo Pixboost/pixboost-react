@@ -23,20 +23,37 @@ module.exports = {
       desiredCapabilities: {
         browserName: 'chrome'
       },
-      windowSize: '1200x800'
+      windowSize: '1200x800',
+      screenshotDelay: 1000
     },
     firefox: {
       desiredCapabilities: {
         browserName: 'firefox'
       },
-      windowSize: '1200x800'
+      windowSize: '1200x800',
+      screenshotDelay: 1000
     },
     ie: {
       desiredCapabilities: {
         browserName: 'internet explorer'
       },
-      windowSize: '1200x800'
+      windowSize: '1200x800',
+      screenshotDelay: 1000
     },
+    mobile: {
+      desiredCapabilities: {
+        browserName: 'chrome'
+      },
+      windowSize: '375x667',
+      screenshotDelay: 1000
+    },
+    tablet: {
+      desiredCapabilities: {
+        browserName: 'chrome'
+      },
+      windowSize: '768x1024',
+      screenshotDelay: 1000
+    }
     // edge: {
     //   desiredCapabilities: {
     //     browserName: 'MicrosoftEdge'
