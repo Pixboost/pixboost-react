@@ -7,7 +7,7 @@ class LazyImageWithSourceUpdate extends Component {
     super(props);
 
     this.state = {
-      src: 'http://www.midday.coffee/assets/banner.jpg'
+      src: 'http://www.midday.coffee/assets/cup.jpeg'
     }
   }
 
@@ -15,7 +15,7 @@ class LazyImageWithSourceUpdate extends Component {
     return (
       <div>
         <Image src={this.state.src} lazy={true} config={pixboostConfig}/>
-        <button onClick={() => {this.setState({src: 'http://www.midday.coffee/assets/cup.jpeg'})}}>Update source</button>
+        <button onClick={() => {this.setState({src: 'http://www.midday.coffee/assets/banner.jpg'})}}>Update source</button>
       </div>
     );
   }
