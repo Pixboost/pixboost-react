@@ -5,6 +5,9 @@ import LazyImage from './test-pages/Image/LazyImage';
 import LazyVisibleImage from './test-pages/Image/LazyVisibleImage';
 import LazyImageWithSourceUpdate from './test-pages/Image/LazyImageWithSourceUpdate';
 import SimplePicture from './test-pages/Picture/SimplePicture';
+import LazyPicture from './test-pages/Picture/LazyPicture';
+import LazyVisiblePicture from './test-pages/Picture/LazyVisiblePicture';
+import LazyPictureWithSourceUpdate from './test-pages/Picture/LazyPictureWithSourceUpdate';
 
 class Toc extends Component {
   render() {
@@ -23,6 +26,9 @@ class Toc extends Component {
           Picture
           <ul>
             <li><Link to={'/picture/simple'}>Simple picture</Link></li>
+            <li><Link to={'/picture/lazy'}>Lazy picture</Link></li>
+            <li><Link to={'/picture/lazy-visible'}>Lazy Visible picture</Link></li>
+            <li><Link to={'/picture/lazy-update'}>Lazy picture with update</Link></li>
           </ul>
         </li>
       </ul>
@@ -42,6 +48,9 @@ class App extends Component {
             <Route path={'/image/lazy-visible'} component={LazyVisibleImage}/>
             <Route path={'/image/lazy-update'} component={LazyImageWithSourceUpdate}/>
             <Route path={'/picture/simple'} component={SimplePicture}/>
+            <Route path={'/picture/lazy'} component={LazyPicture}/>
+            <Route path={'/picture/lazy-visible'} component={LazyVisiblePicture}/>
+            <Route path={'/picture/lazy-update'} component={LazyPictureWithSourceUpdate}/>
           </Switch>
         </div>
       </Router>
