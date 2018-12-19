@@ -25,6 +25,12 @@ describe('Picture', function() {
       .assertView('plain', '.js-app');
   });
 
+  it('hide', function() {
+    return this.browser
+      .url('http://localhost:3000/picture/hide')
+      .assertView('plain', '.js-app');
+  });
+
   it('lazy picture with source update', function() {
     return this.browser
       .url('http://localhost:3000/picture/lazy-update')

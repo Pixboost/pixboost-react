@@ -8,6 +8,7 @@ import SimplePicture from './test-pages/Picture/SimplePicture';
 import LazyPicture from './test-pages/Picture/LazyPicture';
 import LazyVisiblePicture from './test-pages/Picture/LazyVisiblePicture';
 import LazyPictureWithSourceUpdate from './test-pages/Picture/LazyPictureWithSourceUpdate';
+import PictureHide from './test-pages/Picture/PictureHide';
 
 class Toc extends Component {
   render() {
@@ -29,6 +30,7 @@ class Toc extends Component {
             <li><Link to={'/picture/lazy'}>Lazy picture</Link></li>
             <li><Link to={'/picture/lazy-visible'}>Lazy Visible picture</Link></li>
             <li><Link to={'/picture/lazy-update'}>Lazy picture with update</Link></li>
+            <li><Link to={'/picture/hide'}>Hide on specific breakpoints</Link></li>
           </ul>
         </li>
       </ul>
@@ -51,6 +53,7 @@ class App extends Component {
             <Route path={'/picture/lazy'} component={LazyPicture}/>
             <Route path={'/picture/lazy-visible'} component={LazyVisiblePicture}/>
             <Route path={'/picture/lazy-update'} component={LazyPictureWithSourceUpdate}/>
+            <Route path={'/picture/hide'} component={PictureHide}/>
           </Switch>
         </div>
       </Router>
