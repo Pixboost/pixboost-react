@@ -23,6 +23,12 @@ class Picture extends Component {
     this.pictureRef = React.createRef();
   }
 
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
+      this.setupLazyLoad();
+    }
+  }
+
   componentDidMount() {
     this.setupLazyLoad();
   }
@@ -77,7 +83,7 @@ class Picture extends Component {
 
     let defaultBp;
     return (
-      <picture {...rest} data-alt={alt} ref={this.pictureRef}>
+      <picture {...rest} data-alt={alt} ref={this.pictureRef} key={JSON.stringify(this.props)}>
         <IE9Wrapper>
           {Object.keys(breakpoints).map(b => {
             const bpConfig = config.breakpoints[b];

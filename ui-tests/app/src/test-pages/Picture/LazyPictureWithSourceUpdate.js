@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Image, Picture} from 'pixboost-react';
+import {Picture} from 'pixboost-react';
 import {pixboostConfig} from '../config';
 
 class LazyPictureWithSourceUpdate extends Component {

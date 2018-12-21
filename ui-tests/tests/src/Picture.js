@@ -36,7 +36,7 @@ describe('Picture', function() {
       .url('http://localhost:3000/picture/lazy-update')
       .assertView('initial', '.js-app')
       .click('button')
-      .pause(200)
+      .pause(1000)
       .assertView('updated', '.js-app');
   });
 });
