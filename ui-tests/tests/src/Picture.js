@@ -1,4 +1,5 @@
 const assert = require('chai').assert;
+const util = require('util');
 
 describe('Picture', function() {
   it('simple', function() {
@@ -36,7 +37,14 @@ describe('Picture', function() {
       .url('http://localhost:3000/picture/lazy-update')
       .assertView('initial', '.js-app')
       .click('button')
-      .pause(1000)
+      //waiting until new image loaded
+      .waitUntil(() => {
+        return this.browser.execute(function() {
+          return document.getElementsByTagName('img')[0].complete
+        }).then(complete => {
+          return complete.value === true
+        });
+      }, 5000)
       .assertView('updated', '.js-app');
   });
 });
