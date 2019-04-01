@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import lozad from '../lozad';
-import {isElementInViewport, prepareSource} from '../util';
+import { prepareSource } from '../util';
 
 class Image extends Component {
   constructor(props) {
@@ -31,31 +31,34 @@ class Image extends Component {
       const el = this.imgRef.current;
       const lozadInstance = lozad(el, {
         threshold: 0.01,
-        rootMargin: '40px 0px 0px 0px',
+        rootMargin: '40px 0px 0px 0px'
       });
-      if (isElementInViewport(el)) {
-        lozadInstance.triggerLoad(el);
-      } else {
-        lozadInstance.observe();
-      }
+
+      lozadInstance.observe();
     }
   }
 
   render() {
-    const {config, src, alt, op, lazy, ...otherProps} = this.props;
+    const { config, src, alt, op, lazy, ...otherProps } = this.props;
 
     if (!src || !config) {
       return null;
     }
 
     const imgAttrs = {};
-    const imgSrc = src.indexOf('data:') === 0 ?
-      src :
-      `${config.domain.includes('//') ? '' : '//'}${config.domain}/api/2/img/${prepareSource(src)}/${op}${op.includes('?') ? '&' : '?'}auth=${config.apiKey}`;
+    const imgSrc =
+      src.indexOf('data:') === 0
+        ? src
+        : `${config.domain.includes('//') ? '' : '//'}${
+          config.domain
+        }/api/2/img/${prepareSource(src)}/${op}${
+          op.includes('?') ? '&' : '?'
+        }auth=${config.apiKey}`;
 
     if (lazy) {
       imgAttrs['data-src'] = imgSrc;
-      imgAttrs['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+      imgAttrs['src'] =
+        'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
     } else {
       imgAttrs['src'] = imgSrc;
     }
@@ -63,9 +66,7 @@ class Image extends Component {
       imgAttrs.alt = alt;
     }
 
-    return (
-      <img {...imgAttrs} {...otherProps} ref={this.imgRef}/>
-    );
+    return <img {...imgAttrs} {...otherProps} ref={this.imgRef} />;
   }
 }
 
