@@ -7,7 +7,7 @@ import {Cups} from './Data';
 class App extends Component {
     render() {
         const pixboostConfig = {
-            apiKey: 'MTg4MjMxMzM3MA__',
+            apiKey: 'MTA0ODU5NDA0NQ__',
             domain: 'pixboost.com',
             breakpoints: {
                 lg: {media: '(min-width: 576px)'},
@@ -39,6 +39,7 @@ class App extends Component {
                                 }
                             }}
                             config={pixboostConfig}
+                            lazy={false}
                         />
                         <div className="text">
                             <p className="h1 display-4">Find Your Coffee Cup</p>
@@ -47,12 +48,13 @@ class App extends Component {
                     </div>
                     <div className="row text-center">
                         {
-                            Cups.map(c => {
+                            Cups.map( (c, idx) => {
                                 return (
                                     <div className="col-md-4 col-lg-3 col-6" key={c.Name}>
                                         <div className="card">
                                             <div className="img-wrapper">
-                                                <Picture className={'card-img-top'} alt={c.Name} breakpoints={{
+                                                <Picture className={'card-img-top'} alt={c.Name}
+                                                    breakpoints={{
                                                     lg: {
                                                         src: c.Image,
                                                         op: 'resize?size=x200'
@@ -61,7 +63,10 @@ class App extends Component {
                                                         src: c.Image,
                                                         op: 'resize?size=x150'
                                                     }
-                                                }} config={pixboostConfig}/>
+                                                    }}
+                                                    config={pixboostConfig}
+                                                    lazy={idx > 3}
+                                                />
                                             </div>
                                             <div className="card-body">
                                                 <h5>{c.Name}</h5>
