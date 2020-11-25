@@ -76,7 +76,9 @@ class Picture extends Component {
       return null;
     }
 
-    let defaultBp;
+    let emptyBp;
+    const breakpointsKeys = Object.keys(breakpoints);
+
     return (
       <picture
         {...rest}
@@ -85,7 +87,7 @@ class Picture extends Component {
         key={JSON.stringify(this.props)}
       >
         <IE9Wrapper>
-          {Object.keys(breakpoints).map(b => {
+          {breakpointsKeys.map(b => {
             const bpConfig = config.breakpoints[b];
             const bp = breakpoints[b];
 
@@ -97,7 +99,7 @@ class Picture extends Component {
               return;
             }
             if (!bpConfig.media) {
-              defaultBp = bp;
+              emptyBp = bp;
               return;
             }
 
@@ -110,11 +112,14 @@ class Picture extends Component {
             );
           })}
         </IE9Wrapper>
-        {defaultBp && !lazy && (
-          <img src={Picture.bpSrc(config, defaultBp)} alt={alt} />
+        {emptyBp && !lazy && (
+          <img src={Picture.bpSrc(config, emptyBp)} alt={alt} />
         )}
-        {defaultBp && lazy && (
-          <source srcSet={Picture.bpSrc(config, defaultBp)} />
+        {!emptyBp && !lazy && breakpointsKeys.length > 0 && (
+          <img src={Picture.bpSrc(config, breakpoints[breakpointsKeys[0]])} alt={alt} />
+        )}
+        {emptyBp && lazy && (
+          <source srcSet={Picture.bpSrc(config, emptyBp)} />
         )}
       </picture>
     );

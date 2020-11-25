@@ -32,6 +32,15 @@ const testConfig = {
   }
 };
 
+const testConfigWithAllBreakpoints = {
+  domain: 'https://test.com',
+  apiKey: 'abc123',
+  breakpoints: {
+    lg: { media: '(min-width: 990px)' },
+    md: { media: '(min-width: 640px)' },
+  }
+};
+
 describe('Picture', () => {
   beforeEach(() => {
     mockLozad.observe.mockClear();
@@ -82,6 +91,24 @@ describe('Picture', () => {
             lazy={false}
             breakpoints={{
               sm: { hide: true },
+              md: { src: 'https://here.com/logo.png', op: 'resize?size=200' },
+              lg: { src: 'https://here.com/logo-large.png' }
+            }}
+          />,
+          testRendererOptions
+        )
+        .toJSON()
+    ).toMatchSnapshot();
+  });
+
+  it('should render when not lazy and with all breakpoints specified', () => {
+    expect(
+      renderer
+        .create(
+          <Picture
+            config={testConfigWithAllBreakpoints}
+            lazy={false}
+            breakpoints={{
               md: { src: 'https://here.com/logo.png', op: 'resize?size=200' },
               lg: { src: 'https://here.com/logo-large.png' }
             }}

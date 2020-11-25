@@ -68,6 +68,22 @@ exports[`Picture should render when not lazy 1`] = `
 </picture>
 `;
 
+exports[`Picture should render when not lazy and with all breakpoints specified 1`] = `
+<picture>
+  <source
+    media="(min-width: 640px)"
+    srcSet="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcSet="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <img
+    src="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+</picture>
+`;
+
 exports[`Picture should render with alt attribute 1`] = `
 <picture
   data-alt="YO!"
