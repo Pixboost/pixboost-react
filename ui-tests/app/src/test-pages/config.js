@@ -1,5 +1,5 @@
 const pixboostConfig = {
-  apiKey: 'MTg4MjMxMzM3MA__',
+  apiKey: 'MTA0ODU5NDA0NQ__',
   domain: 'pixboost.com',
   breakpoints: {
     lg: {media: '(min-width: 990px)'},

@@ -24,7 +24,7 @@ describe('Image', function() {
       .scroll('img')
       .getAttribute('img', 'src')
       .then(src => {
-        assert.equal(src, 'http://pixboost.com/api/2/img/http://www.midday.coffee/assets/banner.jpg/optimise?auth=MTg4MjMxMzM3MA__');
+        assert.equal(src, 'http://pixboost.com/api/2/img/http://www.midday.coffee/assets/banner.jpg/optimise?auth=MTA0ODU5NDA0NQ__');
       });
   });
 
@@ -36,7 +36,7 @@ describe('Image', function() {
       .click('button')
       .waitUntil(function() {
         return browser.getAttribute('img', 'src').then(attr => {
-          return attr === 'http://pixboost.com/api/2/img/http://www.midday.coffee/assets/banner.jpg/optimise?auth=MTg4MjMxMzM3MA__'
+          return attr === 'http://pixboost.com/api/2/img/http://www.midday.coffee/assets/banner.jpg/optimise?auth=MTA0ODU5NDA0NQ__'
         });
       }, 3000, 'expected to update image source')
       .assertView('updated', '.js-app');

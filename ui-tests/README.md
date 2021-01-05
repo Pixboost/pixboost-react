@@ -2,6 +2,8 @@
 
 Running react app that using pixboost-react library and running webdriver.io tests against it.
 
+Running tests require Node version 10, and they don't work with 12 or 14.
+
 ## How to run
 
 * Start the app
