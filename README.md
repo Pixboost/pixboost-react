@@ -1,6 +1,6 @@
 # pixboost-react
 
-[![Build Status](https://travis-ci.org/Pixboost/pixboost-react.svg?branch=master)](https://travis-ci.org/Pixboost/pixboost-react)
+![Node.js CI](https://github.com/Pixboost/pixboost-react/workflows/Node.js%20CI/badge.svg)
 
 Library for integrating pixboost API into the react applications.
 
