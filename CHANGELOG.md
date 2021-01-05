@@ -1,5 +1,8 @@
 # Changelog
 
+1.6.0
+* Added `lozadOptions` to the config, so users can override intersection observer configuration and other [lozad](https://github.com/ApoorvSaxena/lozad.js) properties
+
 1.5.1
 * FIX: Picture doesn't render image tag when lazy loading turned off and there is not empty breakpoint in the config
 
