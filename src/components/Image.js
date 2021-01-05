@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import lozad from '../lozad';
 import { prepareSource } from '../util';
 
+const defaultLozadOptions = Object.freeze(
+  {
+    threshold: 0.01,
+    rootMargin: '40px 0px 0px 0px'
+  }
+)
+
 class Image extends Component {
   constructor(props) {
     super(props);
@@ -29,10 +36,7 @@ class Image extends Component {
 
     if (this.props.lazy) {
       const el = this.imgRef.current;
-      const lozadInstance = lozad(el, {
-        threshold: 0.01,
-        rootMargin: '40px 0px 0px 0px'
-      });
+      const lozadInstance = lozad(el, Object.assign({}, defaultLozadOptions, this.props.config.lozadOptions));
 
       lozadInstance.observe();
     }

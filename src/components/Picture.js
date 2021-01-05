@@ -4,6 +4,12 @@ import lozad from '../lozad';
 import { getBrowser, prepareSource } from '../util';
 
 const browser = getBrowser();
+const defaultLozadOptions = Object.freeze(
+  {
+    threshold: 0.01,
+    rootMargin: '40px 0px 0px 0px'
+  }
+)
 
 const IE9Wrapper = props => {
   const isIE9 = browser.name === 'MSIE' && browser.version === '9';
@@ -38,15 +44,20 @@ class Picture extends Component {
 
     if (this.props.lazy) {
       const el = this.pictureRef.current;
-      const lozadInstance = lozad(el, {
-        threshold: 0.01,
-        rootMargin: '40px 0px 0px 0px',
-        loaded: () => {
-          if (window.picturefill && typeof window.picturefill === 'function') {
-            window.picturefill();
+      const lozadInstance = lozad(el, Object.assign(
+        {},
+        defaultLozadOptions,
+        this.props.config.lozadOptions,
+        {
+          loaded: (el) => {
+            if (window.picturefill && typeof window.picturefill === 'function') {
+              window.picturefill();
+            }
+            if (this.props.config.lozadOptions && this.props.config.lozadOptions.loaded) {
+              this.props.config.lozadOptions.loaded(el)
+            }
           }
-        }
-      });
+        }));
 
       lozadInstance.observe();
     }

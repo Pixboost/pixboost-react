@@ -12,6 +12,11 @@ class App extends Component {
             breakpoints: {
                 lg: {media: '(min-width: 576px)'},
                 sm: {}
+            },
+            lozadOptions: {
+                loaded: (el) => {
+                    console.log('Element ', el, ' has been loaded');
+                }
             }
         };
         return (

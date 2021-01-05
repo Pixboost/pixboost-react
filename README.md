@@ -127,6 +127,7 @@ Properties (mandatory properties marked with *):
 | domain*           | String  |          | Custom domain name that you setup or pixboost.com |
 | breakpoints       | Object  |          | Key-Value pair of breakpoints that you are using for responsive images |
 | breakpoints.media | String  |          | Media query for breakpoint |
+| lozadOptions      | Object  | `{ threshold: 0.01, rootMargin: '40px 0px 0px 0px'}` | Configuration override for [lozad](https://github.com/ApoorvSaxena/lozad.js) |
 
 
 ## Browsers Support

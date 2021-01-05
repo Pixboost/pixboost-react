@@ -7,7 +7,8 @@ const mockLozad = {
 };
 
 jest.mock('../../src/lozad', () => {
-  return jest.fn().mockImplementation(() => {
+  return jest.fn().mockImplementation((el, options) => {
+    mockLozad.options = options;
     return mockLozad;
   });
 });
@@ -29,6 +30,7 @@ const testConfig = {
 
 describe('Image', () => {
   beforeEach(() => {
+    mockLozad.options = null;
     mockLozad.observe.mockClear();
   });
 
@@ -152,5 +154,42 @@ describe('Image', () => {
         )
         .toJSON()
     ).toMatchSnapshot();
+  });
+
+  it('should use default config in intersection observer config', () => {
+    renderer
+      .create(
+        <Image src={'https://image.here.com/logo.png'} config={testConfig} lazy={true}/>,
+        testRendererOptions
+      );
+
+    expect(mockLozad.options).toEqual({
+      threshold: 0.01,
+      rootMargin: '40px 0px 0px 0px'
+    });
+  });
+
+  it('should override default values in intersection observer config', () => {
+    const config = Object.assign(
+      {},
+      testConfig,
+      {
+        lozadOptions: {
+          rootMargin: "10px 10px 10px 10px"
+        }
+    });
+
+    renderer
+      .create(
+        <Image src={'https://image.here.com/logo.png'}
+               config={config}
+               lazy={true}/>,
+        testRendererOptions
+      );
+
+    expect(mockLozad.options).toEqual({
+      threshold: 0.01,
+      rootMargin: '10px 10px 10px 10px'
+    });
   });
 });
