@@ -129,6 +129,12 @@ Properties (mandatory properties marked with *):
 | breakpoints.media | String  |          | Media query for breakpoint |
 | lozadOptions      | Object  | `{ threshold: 0.01, rootMargin: '40px 0px 0px 0px'}` | Configuration override for [lozad](https://github.com/ApoorvSaxena/lozad.js) |
 
+Lazy loading is implemented using [lozad](https://github.com/ApoorvSaxena/lozad.js) library. You can customise intersection
+observer configuration using it. The configuration properties for lozadOptions are:
+
+* threshold - [Intersection Observer threshold](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver)
+* rootMargin - [Intersection Observer margin](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver)
+* loaded - callback for image loading that accepts `Element` as an argument 
 
 ## Browsers Support
 
