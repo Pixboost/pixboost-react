@@ -175,15 +175,15 @@ describe('Image', () => {
       testConfig,
       {
         lozadOptions: {
-          rootMargin: "10px 10px 10px 10px"
+          rootMargin: '10px 10px 10px 10px'
         }
-    });
+      });
 
     renderer
       .create(
         <Image src={'https://image.here.com/logo.png'}
-               config={config}
-               lazy={true}/>,
+          config={config}
+          lazy={true}/>,
         testRendererOptions
       );
 

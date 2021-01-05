@@ -223,7 +223,7 @@ describe('Picture', () => {
       testConfig,
       {
         lozadOptions: {
-          rootMargin: "10px 10px 10px 10px"
+          rootMargin: '10px 10px 10px 10px'
         }
       });
 

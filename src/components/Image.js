@@ -8,7 +8,7 @@ const defaultLozadOptions = Object.freeze(
     threshold: 0.01,
     rootMargin: '40px 0px 0px 0px'
   }
-)
+);
 
 class Image extends Component {
   constructor(props) {

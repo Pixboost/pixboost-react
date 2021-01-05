@@ -9,7 +9,7 @@ const defaultLozadOptions = Object.freeze(
     threshold: 0.01,
     rootMargin: '40px 0px 0px 0px'
   }
-)
+);
 
 const IE9Wrapper = props => {
   const isIE9 = browser.name === 'MSIE' && browser.version === '9';
@@ -54,7 +54,7 @@ class Picture extends Component {
               window.picturefill();
             }
             if (this.props.config.lozadOptions && this.props.config.lozadOptions.loaded) {
-              this.props.config.lozadOptions.loaded(el)
+              this.props.config.lozadOptions.loaded(el);
             }
           }
         }));
