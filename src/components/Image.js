@@ -1,45 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import lozad from '../lozad';
 import { prepareSource } from '../util';
-
-const defaultLozadOptions = Object.freeze(
-  {
-    threshold: 0.01,
-    rootMargin: '40px 0px 0px 0px'
-  }
-);
 
 class Image extends Component {
   constructor(props) {
     super(props);
     this.imgRef = React.createRef();
-  }
-
-  componentDidMount() {
-    this.setupLazyLoad();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
-      if (this.imgRef.current) {
-        this.imgRef.current.removeAttribute('data-loaded');
-      }
-      this.setupLazyLoad();
-    }
-  }
-
-  setupLazyLoad() {
-    if (!this.imgRef.current) {
-      return;
-    }
-
-    if (this.props.lazy) {
-      const el = this.imgRef.current;
-      const lozadInstance = lozad(el, Object.assign({}, defaultLozadOptions, this.props.config.lozadOptions));
-
-      lozadInstance.observe();
-    }
   }
 
   render() {
@@ -60,17 +26,14 @@ class Image extends Component {
         }auth=${config.apiKey}`;
 
     if (lazy) {
-      imgAttrs['data-src'] = imgSrc;
-      imgAttrs['src'] =
-        'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
-    } else {
-      imgAttrs['src'] = imgSrc;
+      imgAttrs['loading'] = 'lazy';
     }
+    imgAttrs['src'] = imgSrc;
     if (alt) {
       imgAttrs.alt = alt;
     }
 
-    return <img {...imgAttrs} {...otherProps} ref={this.imgRef} />;
+    return <img {...imgAttrs} {...otherProps}/>;
   }
 }
 

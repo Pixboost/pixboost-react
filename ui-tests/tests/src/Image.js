@@ -1,10 +1,9 @@
 const assert = require('chai').assert;
 
 describe('Image', function() {
-  it('simple', function() {
-    return this.browser
-      .url('http://localhost:3000/image/simple')
-      .assertView('plain', '.js-app');
+  it('simple', async function({browser}) {
+    await browser.url('http://localhost:3000/image/simple');
+    await browser.assertView('plain', '.js-app');
   });
 
   it('lazy-visible', function() {
@@ -13,19 +12,13 @@ describe('Image', function() {
       .assertView('plain', '.js-app');
   });
 
-  hermione.skip.in('ie', `IE doesn't support intersection observer`);
-  it('lazy', function() {
-    return this.browser
-      .url('http://localhost:3000/image/lazy')
-      .getAttribute('img', 'src')
-      .then(src => {
-        assert.equal(src, 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
-      })
-      .scroll('img')
-      .getAttribute('img', 'src')
-      .then(src => {
-        assert.equal(src, 'http://pixboost.com/api/2/img/http://www.midday.coffee/assets/banner.jpg/optimise?auth=MTA0ODU5NDA0NQ__');
-      });
+  it.only('lazy', async function({browser}) {
+    await browser.url('http://localhost:3000/image/lazy');
+    const src = browser.$('img').getAttribute('src');
+    assert.equal(src, 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+    await browser.scroll('img');
+    const loadedSrc = browser.$('img').getAttribute('src');
+    assert.equal(loadedSrc, 'http://pixboost.com/api/2/img/http://www.midday.coffee/assets/banner.jpg/optimise?auth=MTA0ODU5NDA0NQ__');
   });
 
   it('lazy image with source update', function() {

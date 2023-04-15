@@ -33,13 +33,6 @@ module.exports = {
       windowSize: '1200x800',
       screenshotDelay: 1000
     },
-    ie: {
-      desiredCapabilities: {
-        browserName: 'internet explorer'
-      },
-      windowSize: '1200x800',
-      screenshotDelay: 1000
-    },
     mobile: {
       desiredCapabilities: {
         browserName: 'chrome'
@@ -54,10 +47,5 @@ module.exports = {
       windowSize: '768x1024',
       screenshotDelay: 1000
     }
-    // edge: {
-    //   desiredCapabilities: {
-    //     browserName: 'MicrosoftEdge'
-    //   }
-    // }
   }
 };

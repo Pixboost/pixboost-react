@@ -6,8 +6,7 @@
   "files": [
     "lib/components",
     "lib/util.js",
-    "lib/index.js",
-    "lib/lozad.js"
+    "lib/index.js"
   ],
   "scripts": {
     "test": "jest --ci ./__tests__/",

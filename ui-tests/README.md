@@ -13,7 +13,7 @@ Running tests require Node version 10, and they don't work with 12 or 14.
 * Run the tests
     * `cd tests`
     * `npm install`
-    * `npm run install` (only once)
+    * `npm run selenium-install` (only once)
     * `npm run start-selenium`
     * `npm test`
 
