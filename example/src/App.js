@@ -8,7 +8,7 @@ class App extends Component {
     render() {
         const pixboostConfig = {
             apiKey: 'MTA0ODU5NDA0NQ__',
-            domain: 'pixboost.com',
+            domain: 'https://pixboost.com',
             breakpoints: {
                 lg: {media: '(min-width: 576px)'},
                 sm: {}
