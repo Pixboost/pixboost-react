@@ -74,6 +74,24 @@ describe('Picture', () => {
     ).toMatchSnapshot();
   });
 
+  it('should render when lazy', () => {
+    expect(
+      renderer
+        .create(
+          <Picture
+            config={testConfig}
+            lazy={true}
+            breakpoints={{
+              sm: { hide: true },
+              md: { src: 'https://here.com/logo.png', op: 'resize?size=200' },
+              lg: { src: 'https://here.com/logo-large.png' }
+            }}
+          />
+        )
+        .toJSON()
+    ).toMatchSnapshot();
+  });
+
   it('should render when not lazy and with all breakpoints specified', () => {
     expect(
       renderer
@@ -81,6 +99,23 @@ describe('Picture', () => {
           <Picture
             config={testConfigWithAllBreakpoints}
             lazy={false}
+            breakpoints={{
+              md: { src: 'https://here.com/logo.png', op: 'resize?size=200' },
+              lg: { src: 'https://here.com/logo-large.png' }
+            }}
+          />
+        )
+        .toJSON()
+    ).toMatchSnapshot();
+  });
+
+  it('should render when lazy and with all breakpoints specified', () => {
+    expect(
+      renderer
+        .create(
+          <Picture
+            config={testConfigWithAllBreakpoints}
+            lazy={true}
             breakpoints={{
               md: { src: 'https://here.com/logo.png', op: 'resize?size=200' },
               lg: { src: 'https://here.com/logo-large.png' }

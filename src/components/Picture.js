@@ -31,7 +31,7 @@ class Picture extends Component {
       return null;
     }
 
-    let emptyBp;
+    let imgTagBp;
     const breakpointsKeys = Object.keys(breakpoints);
 
     return (
@@ -50,8 +50,12 @@ class Picture extends Component {
             );
             return;
           }
+
+          if (!imgTagBp) {
+            imgTagBp = bp;
+          }
           if (!bpConfig.media) {
-            emptyBp = bp;
+            imgTagBp = bp;
             return;
           }
 
@@ -64,15 +68,12 @@ class Picture extends Component {
           );
         })}
 
-        {emptyBp && !lazy && (
-          <img src={Picture.bpSrc(config, emptyBp)} alt={alt} />
-        )}
-        {!emptyBp && !lazy && breakpointsKeys.length > 0 && (
-          <img src={Picture.bpSrc(config, breakpoints[breakpointsKeys[0]])} alt={alt} />
-        )}
-        {emptyBp && lazy && (
-          <img alt={alt} srcSet={Picture.bpSrc(config, emptyBp)} loading="lazy" />
-        )}
+
+        <img
+          src={Picture.bpSrc(config, imgTagBp)}
+          alt={alt}
+          {...(lazy && {loading: 'lazy'})}
+        />
       </picture>
     );
   }

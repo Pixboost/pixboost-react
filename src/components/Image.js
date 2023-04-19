@@ -5,7 +5,6 @@ import { prepareSource } from '../util';
 class Image extends Component {
   constructor(props) {
     super(props);
-    this.imgRef = React.createRef();
   }
 
   render() {

@@ -13,7 +13,7 @@ exports[`Picture should encode sources that have query params 1`] = `
   <img
     alt="YO!"
     loading="lazy"
-    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   />
 </picture>
 `;
@@ -31,7 +31,7 @@ exports[`Picture should not apply URL transformation for data: sources 1`] = `
   <img
     alt="YO!"
     loading="lazy"
-    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   />
 </picture>
 `;
@@ -48,7 +48,41 @@ exports[`Picture should not crash if one of the breakpoints don't have source 1`
   />
   <img
     loading="lazy"
-    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;
+
+exports[`Picture should render when lazy 1`] = `
+<picture>
+  <source
+    media="(min-width: 640px)"
+    srcSet="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcSet="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <img
+    loading="lazy"
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+</picture>
+`;
+
+exports[`Picture should render when lazy and with all breakpoints specified 1`] = `
+<picture>
+  <source
+    media="(min-width: 640px)"
+    srcSet="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
+  />
+  <source
+    media="(min-width: 990px)"
+    srcSet="https://test.com/api/2/img/https://here.com/logo-large.png/optimise?auth=abc123"
+  />
+  <img
+    loading="lazy"
+    src="https://test.com/api/2/img/https://here.com/logo.png/resize?size=200&auth=abc123"
   />
 </picture>
 `;
@@ -98,7 +132,7 @@ exports[`Picture should render with alt attribute 1`] = `
   <img
     alt="YO!"
     loading="lazy"
-    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   />
 </picture>
 `;
@@ -115,7 +149,7 @@ exports[`Picture should render with minimum parameters 1`] = `
   />
   <img
     loading="lazy"
-    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   />
 </picture>
 `;
@@ -133,7 +167,7 @@ exports[`Picture should replace source that starts with // to https:// 1`] = `
   <img
     alt="YO!"
     loading="lazy"
-    srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   />
 </picture>
 `;
