@@ -21,9 +21,9 @@ To install the library:
 npm install --save pixboost-react
 ```
 
-There are two component that's library provides: 
-* Image for standard images 
-* Picture for responsive images. 
+There are two components that library provides: 
+* Picture for responsive images.
+* Image for static images.
 
 Library supports React version 14+.
 
@@ -84,7 +84,7 @@ Properties (mandatory properties marked with *):
 
 ### Non-responsive images
 
-There is an `Image` component that you can use to render an image with one source.
+An `Image` component will be rendered the same on all screen sizes.
 
 Example:
 
@@ -119,12 +119,12 @@ Properties (mandatory properties marked with *):
 
 ### Configuration object
 
-| Property          | Type    | Default  |Description           | 
-| ------------------|---------|----------|----------------------|
-| apiKey*           | String  |          | Pixboost API key |
-| domain*           | String  |          | Custom domain name that you setup or pixboost.com |
+| Property          | Type    | Default  | Description                                                            | 
+| ------------------|---------|----------|------------------------------------------------------------------------|
+| apiKey*           | String  |          | Pixboost API key                                                       |
+| domain*           | String  |          | Custom domain name that you setup or pixboost.com                      |
 | breakpoints       | Object  |          | Key-Value pair of breakpoints that you are using for responsive images |
-| breakpoints.media | String  |          | Media query for breakpoint |
+| breakpoints.media | String  |          | Media query for the breakpoint                                         |
 
 ## Browsers Support
 

@@ -51,12 +51,13 @@ class Picture extends Component {
             return;
           }
 
-          if (!imgTagBp) {
-            imgTagBp = bp;
-          }
           if (!bpConfig.media) {
             imgTagBp = bp;
             return;
+          }
+
+          if (!imgTagBp) {
+            imgTagBp = bp;
           }
 
           return (
