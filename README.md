@@ -1,6 +1,7 @@
 # pixboost-react
 
 ![Node.js CI](https://github.com/Pixboost/pixboost-react/workflows/Node.js%20CI/badge.svg)
+[![codecov](https://codecov.io/gh/Pixboost/pixboost-react/branch/master/graph/badge.svg?token=OZHEWxCf5X)](https://codecov.io/gh/Pixboost/pixboost-react)
 
 Library for integrating pixboost API into the react applications.
 

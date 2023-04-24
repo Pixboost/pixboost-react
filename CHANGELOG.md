@@ -1,6 +1,6 @@
 # Changelog
 
-1.7.0
+2.0.0
 * Using native lazy loading instead of Intersection Observer JS API.
 * Removed lozadOptions from the configuration object.
 * Removed polyfills and support for IE
