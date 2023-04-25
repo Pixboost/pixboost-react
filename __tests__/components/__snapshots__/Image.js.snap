@@ -2,30 +2,30 @@
 
 exports[`Image should encode image source if it has query params 1`] = `
 <img
-  data-src="https://test.com/api/2/img/http:%2F%2Fimage.here.com%2Flogo.png%3Fparam%3D1/fit?size=100x200&auth=abc123"
-  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  loading="lazy"
+  src="https://test.com/api/2/img/http:%2F%2Fimage.here.com%2Flogo.png%3Fparam%3D1/fit?size=100x200&auth=abc123"
 />
 `;
 
 exports[`Image should not apply URL transformation for data: sources 1`] = `
 <img
-  data-src="data:ABCDEF"
-  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  loading="lazy"
+  src="data:ABCDEF"
 />
 `;
 
 exports[`Image should render with alt text 1`] = `
 <img
   alt="yo!"
-  data-src="https://test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
-  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  loading="lazy"
+  src="https://test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
 />
 `;
 
 exports[`Image should render with domain that don't have scheme 1`] = `
 <img
-  data-src="//test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
-  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  loading="lazy"
+  src="//test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
 />
 `;
 
@@ -37,21 +37,21 @@ exports[`Image should render with lazy loading disabled 1`] = `
 
 exports[`Image should render with minimum parameters 1`] = `
 <img
-  data-src="https://test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
-  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  loading="lazy"
+  src="https://test.com/api/2/img/https://image.here.com/logo.png/optimise?auth=abc123"
 />
 `;
 
 exports[`Image should render with operation that have arguments 1`] = `
 <img
-  data-src="https://test.com/api/2/img/https://image.here.com/logo.png/fit?size=100x200&auth=abc123"
-  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  loading="lazy"
+  src="https://test.com/api/2/img/https://image.here.com/logo.png/fit?size=100x200&auth=abc123"
 />
 `;
 
 exports[`Image should replace source that starts with // to https:// 1`] = `
 <img
-  data-src="https://test.com/api/2/img/http://image.here.com/logo.png/fit?size=100x200&auth=abc123"
-  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  loading="lazy"
+  src="https://test.com/api/2/img/http://image.here.com/logo.png/fit?size=100x200&auth=abc123"
 />
 `;

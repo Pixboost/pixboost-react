@@ -1,8 +1,9 @@
 # pixboost-react
 
 ![Node.js CI](https://github.com/Pixboost/pixboost-react/workflows/Node.js%20CI/badge.svg)
+[![codecov](https://codecov.io/gh/Pixboost/pixboost-react/branch/master/graph/badge.svg?token=OZHEWxCf5X)](https://codecov.io/gh/Pixboost/pixboost-react)
 
-Library for integrating pixboost API into the react applications.
+Library for integrating [Pixboost API](https://help.pixboost.com/api) into the React applications.
 
 Table of Contents:
 
@@ -21,17 +22,15 @@ To install the library:
 npm install --save pixboost-react
 ```
 
-There are two component that's library provides: 
-* Image for standard images 
-* Picture for responsive images. 
+There are two components that library provides: 
+* Picture for responsive images.
+* Image for static images.
 
 Library supports React version 14+.
 
-
-
 ### Responsive images
 
-The library provides `Picture` component that will render different size images for different 
+The library provides `Picture` component that will render different sizes of the image for different 
 visual breakpoints. 
 
 Below is a simple example:
@@ -86,7 +85,7 @@ Properties (mandatory properties marked with *):
 
 ### Non-responsive images
 
-There is an `Image` component that you can use to render a standard image.
+An `Image` component will be rendered the same on all screen sizes.
 
 Example:
 
@@ -121,35 +120,16 @@ Properties (mandatory properties marked with *):
 
 ### Configuration object
 
-| Property          | Type    | Default  |Description           | 
-| ------------------|---------|----------|----------------------|
-| apiKey*           | String  |          | Pixboost API key |
-| domain*           | String  |          | Custom domain name that you setup or pixboost.com |
+| Property          | Type    | Default  | Description                                                            | 
+| ------------------|---------|----------|------------------------------------------------------------------------|
+| apiKey*           | String  |          | Pixboost API key                                                       |
+| domain*           | String  |          | Custom domain name that you setup or pixboost.com                      |
 | breakpoints       | Object  |          | Key-Value pair of breakpoints that you are using for responsive images |
-| breakpoints.media | String  |          | Media query for breakpoint |
-| lozadOptions      | Object  | `{ threshold: 0.01, rootMargin: '40px 0px 0px 0px'}` | Configuration override for [lozad](https://github.com/ApoorvSaxena/lozad.js) |
-
-Lazy loading is implemented using [lozad](https://github.com/ApoorvSaxena/lozad.js) library. You can customise intersection
-observer configuration using it. The configuration properties for lozadOptions are:
-
-* threshold - [Intersection Observer threshold](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver)
-* rootMargin - [Intersection Observer margin](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver)
-* loaded - callback for image loading that accepts `Element` as an argument 
+| breakpoints.media | String  |          | Media query for the breakpoint                                         |
 
 ## Browsers Support
 
-The library supports all major browsers including Chrome, Firefox, Safari and Internet Explorer.
-Internet Explorer 9 requires polyfill for `<picture>` implementations. We are recommending to use
-[picturefill](http://scottjehl.github.io/picturefill/) version 3. You can include it from our CDN:
-
-```html
-    <script src="https://pixboost.com/libs/picturefill.min.js" async></script> 
-``` 
-
-Lazy loading is using [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) 
-feature that supports by all [major browsers](https://caniuse.com/#search=intersectionObserver) 
-except Safari. You can use polyfill, but make sure that you are doing thorough testing as we found some problems with absolute
-positioned layouts.
+The library supports all major browsers including Chrome, Chromium based (including IE), Firefox, Safari.
 
 ## Build
 
@@ -160,4 +140,4 @@ npm install
 npm run build
 ```
 
-Result will be generated in the `lib/` folder.
+Result will be generated into the `lib/` folder.

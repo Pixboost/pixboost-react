@@ -1,5 +1,10 @@
 # Changelog
 
+2.0.0
+* Using native lazy loading instead of Intersection Observer JS API.
+* Removed lozadOptions from the configuration object.
+* Removed polyfills and support for IE
+
 1.6.0
 * Added `lozadOptions` to the config, so users can override intersection observer configuration and other [lozad](https://github.com/ApoorvSaxena/lozad.js) properties
 
