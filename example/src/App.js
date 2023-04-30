@@ -41,7 +41,8 @@ class App extends Component {
                             config={pixboostConfig}
                             lazy={false}
                             imgProps={{
-                                height: '400'
+                                height: 400,
+                                fetchpriority: 'high'
                             }}
                         />
                         <div className="text">
