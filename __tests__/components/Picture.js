@@ -144,6 +144,25 @@ describe('Picture', () => {
     ).toMatchSnapshot();
   });
 
+  it('should render with additional image props', () => {
+    expect(
+      renderer
+        .create(
+          <Picture
+            config={testConfig}
+            alt={'YO!'}
+            breakpoints={{
+              sm: { hide: true },
+              md: { src: 'https://here.com/logo.png', op: 'resize?size=200' },
+              lg: { src: 'https://here.com/logo-large.png' }
+            }}
+            imgProps={{width: 100, height: 200}}
+          />
+        )
+        .toJSON()
+    ).toMatchSnapshot();
+  });
+
   it('should not apply URL transformation for data: sources', () => {
     expect(
       renderer

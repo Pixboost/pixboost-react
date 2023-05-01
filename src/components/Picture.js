@@ -25,7 +25,7 @@ class Picture extends Component {
   }
 
   render() {
-    const { config, breakpoints, alt, lazy, ...rest } = this.props;
+    const { config, breakpoints, alt, lazy, imgProps, ...rest } = this.props;
 
     if (!config) {
       return null;
@@ -73,6 +73,7 @@ class Picture extends Component {
         <img
           src={Picture.bpSrc(config, imgTagBp)}
           alt={alt}
+          {...imgProps}
           {...(lazy && {loading: 'lazy'})}
         />
       </picture>
@@ -81,10 +82,11 @@ class Picture extends Component {
 }
 
 Picture.propTypes = {
-  alt: PropTypes.string,
+  alt: PropTypes.string.isRequired,
   lazy: PropTypes.bool,
   breakpoints: PropTypes.object.isRequired,
-  config: PropTypes.object.isRequired
+  config: PropTypes.object.isRequired,
+  imgProps: PropTypes.object
 };
 
 Picture.defaultProps = {

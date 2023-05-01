@@ -12,11 +12,6 @@ class App extends Component {
             breakpoints: {
                 lg: {media: '(min-width: 576px)'},
                 sm: {}
-            },
-            lozadOptions: {
-                loaded: (el) => {
-                    console.log('Element ', el, ' has been loaded');
-                }
             }
         };
         return (
@@ -45,6 +40,10 @@ class App extends Component {
                             }}
                             config={pixboostConfig}
                             lazy={false}
+                            imgProps={{
+                                height: 400,
+                                fetchpriority: 'high'
+                            }}
                         />
                         <div className="text">
                             <p className="h1 display-4">Find Your Coffee Cup</p>

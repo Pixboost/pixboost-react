@@ -5,7 +5,7 @@
   "homepage": "https://midday.coffee/react-demo",
   "dependencies": {
     "bootstrap": "4.6.2",
-    "pixboost-react": "../",
+    "pixboost-react": "file:../",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1"
