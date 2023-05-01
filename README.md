@@ -73,15 +73,16 @@ Below is a simple example:
 
 Properties (mandatory properties marked with *):
 
-| Property         | Type    | Default  |Description           | 
-| -----------------|---------|----------|----------------------|
+| Property         | Type    | Default  | Description                                                                                                                          | 
+|------------------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------------|
 | breakpoints*     | Object  |          | Object that sets an option for each visual breakpoint. You can use only breakpoints that you specified in the configuration property |
-| breakpoints.src* | String  |          | URL of the original image |
-| breakpoints.op   | String  | optimise | Operation to perform. By default is optimise. |
-| breakpoints.hide | Boolean | false    | If true then will hide image on the breakpoint. |
-| config*          | Object  |          | Configuration |
-| alt              | String  |          | alt text for an image |
-| lazy             | Boolean | true     | If true, then will enable lazy loading for the picture. |
+| breakpoints.src* | String  |          | URL of the original image                                                                                                            |
+| breakpoints.op   | String  | optimise | Operation to perform. By default is optimise.                                                                                        |
+| breakpoints.hide | Boolean | false    | If true then will hide image on the breakpoint.                                                                                      |
+| config*          | Object  |          | Configuration                                                                                                                        |
+| alt              | String  |          | alt text for an image                                                                                                                |
+| lazy             | Boolean | true     | If true, then will enable lazy loading for the picture.                                                                              |
+| imgProps         | Object  |          | Pass through props to `<img>` tag.                                                                                                   |  
 
 ### Non-responsive images
 
@@ -111,21 +112,21 @@ Example:
 
 Properties (mandatory properties marked with *):
 
-| Property         | Type    | Default  |Description           | 
-| -----------------|---------|----------|----------------------|
-| src*             | String  |          | URL of the original image |
-| config*          | Object  |          | Configuration |
-| alt              | String  |          | alt text for an image |
-| lazy             | Boolean | true     | If true, then will enable lazy loading for the image. |
+| Property | Type    | Default | Description                                           | 
+|----------|---------|---------|-------------------------------------------------------|
+| src*     | String  |         | URL of the original image                             |
+| config*  | Object  |         | Configuration                                         |
+| alt      | String  |         | alt text for an image                                 |
+| lazy     | Boolean | true    | If true, then will enable lazy loading for the image. |
 
 ### Configuration object
 
-| Property          | Type    | Default  | Description                                                            | 
-| ------------------|---------|----------|------------------------------------------------------------------------|
-| apiKey*           | String  |          | Pixboost API key                                                       |
-| domain*           | String  |          | Custom domain name that you setup or pixboost.com                      |
-| breakpoints       | Object  |          | Key-Value pair of breakpoints that you are using for responsive images |
-| breakpoints.media | String  |          | Media query for the breakpoint                                         |
+| Property          | Type   | Default | Description                                                            | 
+|-------------------|--------|---------|------------------------------------------------------------------------|
+| apiKey*           | String |         | Pixboost API key                                                       |
+| domain*           | String |         | Custom domain name that you setup or pixboost.com                      |
+| breakpoints       | Object |         | Key-Value pair of breakpoints that you are using for responsive images |
+| breakpoints.media | String |         | Media query for the breakpoint                                         |
 
 ## Browsers Support
 

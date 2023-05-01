@@ -1,5 +1,8 @@
 # Changelog
 
+2.1.0
+* Added `imgProps` for the Picture component 
+
 2.0.0
 * Using native lazy loading instead of Intersection Observer JS API.
 * Removed lozadOptions from the configuration object.
