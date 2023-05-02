@@ -216,4 +216,20 @@ describe('Picture', () => {
         .toJSON()
     ).toMatchSnapshot();
   });
+
+  it('should render responsive image with hi-DPI support', () => {
+    renderer.create(
+      <Picture alt="YO"
+               config={testConfig}
+               breakpoints={{
+                 sm: {size: '100vw'},
+                 md: {size: '640w'},
+                 lg: {size: '1500w'}
+               }}
+               minSize={300}
+               maxSize={1500}
+      />
+
+    )
+  });
 });
