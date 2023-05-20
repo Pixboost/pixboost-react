@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {Picture} from 'pixboost-react';
+import {Picture, HiDpiPicture} from 'pixboost-react';
 import {Cups} from './Data';
 
 class App extends Component {
@@ -24,32 +24,24 @@ class App extends Component {
                     </form>
                 </nav>
 
-                <div className={'container'}>
-                    <div className="banner">
-                        <Picture
-                            alt={'coffee beans'}
-                            breakpoints={{
-                                lg: {
-                                    src: 'http://www.midday.coffee/assets/banner.jpg',
-                                    op: 'optimise'
-                                },
-                                sm: {
-                                    src: 'http://www.midday.coffee/assets/banner.jpg',
-                                    op: 'fit?size=400x400'
-                                }
-                            }}
-                            config={pixboostConfig}
-                            lazy={false}
-                            imgProps={{
-                                height: 400,
-                                fetchpriority: 'high'
-                            }}
-                        />
-                        <div className="text">
-                            <p className="h1 display-4">Find Your Coffee Cup</p>
-                            <p className="lead">We have them all in one place!</p>
-                        </div>
+                <div className="banner">
+                    <HiDpiPicture
+                      alt={'coffee machine'}
+                      breakpoints={{
+                          lg: {size: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 1200},
+                          sm: {size: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600}
+                      }}
+                      config={pixboostConfig}
+                      src="http://www.midday.coffee/midday-coffee.jpg"
+                      minWidth={300}
+                      maxWidth={3000}
+                    />
+                    <div className="text">
+                        <p className="h1 display-4">Find Your Coffee Cup</p>
+                        <p className="lead">We have them all in one place!</p>
                     </div>
+                </div>
+                <div className={'container'}>
                     <div className="row text-center">
                         {
                             Cups.map( (c, idx) => {
@@ -69,7 +61,7 @@ class App extends Component {
                                                     }
                                                     }}
                                                     config={pixboostConfig}
-                                                    lazy={idx > 3}
+                                                    lazy={idx > 1}
                                                 />
                                             </div>
                                             <div className="card-body">

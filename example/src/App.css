@@ -14,16 +14,11 @@
 }
 
 .banner {
-  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
-}
-
-.banner img {
-  width: 100%;
-  object-fit: cover;
+  height: 1200px;
 }
 
 .banner > .text {
@@ -61,11 +56,11 @@
   margin-bottom: 20px;
 }
 
-.navbar {
-  margin-bottom: 30px;
-}
-
 @media (max-width: 576px) {
+  .banner {
+    height: 600px;
+  }
+
   .card-img-top {
     height: auto;
   }
