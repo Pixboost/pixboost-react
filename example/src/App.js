@@ -32,7 +32,7 @@ class App extends Component {
                           sm: {size: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600}
                       }}
                       config={pixboostConfig}
-                      src="http://www.midday.coffee/midday-coffee.jpg"
+                      src="http://www.midday.coffee/assets/banner2.jpg"
                       minWidth={300}
                       maxWidth={3000}
                     />
