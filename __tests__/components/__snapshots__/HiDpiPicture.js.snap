@@ -311,54 +311,6 @@ https://test.com/api/2/img/http://here.com/logo.png/resize?size=1500&dppx=1&auth
 exports[`HiDpiPicture should support lazy loading 1`] = `
 <picture>
   <source
-    media="(-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 2.9999)"
-    sizes="(min-width: 640px) and (max-width: 989.98) 640px, (min-width: 990px) 1500px, 100vw"
-    srcSet="
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=600x1200&dppx=2&auth=abc123 600w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=800x1200&dppx=2&auth=abc123 800w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1000x1200&dppx=2&auth=abc123 1000w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1200x1200&dppx=2&auth=abc123 1200w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1400x1200&dppx=2&auth=abc123 1400w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1600x1200&dppx=2&auth=abc123 1600w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1800x1200&dppx=2&auth=abc123 1800w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=2000x1200&dppx=2&auth=abc123 2000w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=2400x1200&dppx=2&auth=abc123 2400w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=2800x1200&dppx=2&auth=abc123 2800w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=3000x1200&dppx=2&auth=abc123 3000w"
-  />
-  <source
-    media="(-webkit-min-device-pixel-ratio: 3)"
-    sizes="(min-width: 640px) and (max-width: 989.98) 640px, (min-width: 990px) 1500px, 100vw"
-    srcSet="
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=900x1800&dppx=3&auth=abc123 900w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1200x1800&dppx=3&auth=abc123 1200w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1500x1800&dppx=3&auth=abc123 1500w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1800x1800&dppx=3&auth=abc123 1800w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=2100x1800&dppx=3&auth=abc123 2100w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=2400x1800&dppx=3&auth=abc123 2400w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=2700x1800&dppx=3&auth=abc123 2700w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=3000x1800&dppx=3&auth=abc123 3000w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=3600x1800&dppx=3&auth=abc123 3600w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=4200x1800&dppx=3&auth=abc123 4200w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=4500x1800&dppx=3&auth=abc123 4500w"
-  />
-  <source
-    media="(-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.9999)"
-    sizes="(min-width: 640px) and (max-width: 989.98) 640px, (min-width: 990px) 1500px, 100vw"
-    srcSet="
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=300x600&dppx=1&auth=abc123 300w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=400x600&dppx=1&auth=abc123 400w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=500x600&dppx=1&auth=abc123 500w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=600x600&dppx=1&auth=abc123 600w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=700x600&dppx=1&auth=abc123 700w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=800x600&dppx=1&auth=abc123 800w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=900x600&dppx=1&auth=abc123 900w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1000x600&dppx=1&auth=abc123 1000w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1200x600&dppx=1&auth=abc123 1200w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1400x600&dppx=1&auth=abc123 1400w,
-https://test.com/api/2/img/http://here.com/logo.png/fit?size=1500x600&dppx=1&auth=abc123 1500w"
-  />
-  <source
     media="(-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 2.9999) and (min-width: 640px) and (max-width: 989.98)"
     sizes="(min-width: 640px) and (max-width: 989.98) 640px, (min-width: 990px) 1500px, 100vw"
     srcSet="
@@ -405,6 +357,54 @@ https://test.com/api/2/img/http://here.com/logo.png/resize?size=1000&dppx=1&auth
 https://test.com/api/2/img/http://here.com/logo.png/resize?size=1200&dppx=1&auth=abc123 1200w,
 https://test.com/api/2/img/http://here.com/logo.png/resize?size=1400&dppx=1&auth=abc123 1400w,
 https://test.com/api/2/img/http://here.com/logo.png/resize?size=1500&dppx=1&auth=abc123 1500w"
+  />
+  <source
+    media="(-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 2.9999)"
+    sizes="(min-width: 640px) and (max-width: 989.98) 640px, (min-width: 990px) 1500px, 100vw"
+    srcSet="
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=600x1200&dppx=2&auth=abc123 600w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=800x1200&dppx=2&auth=abc123 800w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1000x1200&dppx=2&auth=abc123 1000w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1200x1200&dppx=2&auth=abc123 1200w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1400x1200&dppx=2&auth=abc123 1400w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1600x1200&dppx=2&auth=abc123 1600w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1800x1200&dppx=2&auth=abc123 1800w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=2000x1200&dppx=2&auth=abc123 2000w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=2400x1200&dppx=2&auth=abc123 2400w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=2800x1200&dppx=2&auth=abc123 2800w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=3000x1200&dppx=2&auth=abc123 3000w"
+  />
+  <source
+    media="(-webkit-min-device-pixel-ratio: 3)"
+    sizes="(min-width: 640px) and (max-width: 989.98) 640px, (min-width: 990px) 1500px, 100vw"
+    srcSet="
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=900x1800&dppx=3&auth=abc123 900w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1200x1800&dppx=3&auth=abc123 1200w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1500x1800&dppx=3&auth=abc123 1500w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1800x1800&dppx=3&auth=abc123 1800w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=2100x1800&dppx=3&auth=abc123 2100w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=2400x1800&dppx=3&auth=abc123 2400w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=2700x1800&dppx=3&auth=abc123 2700w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=3000x1800&dppx=3&auth=abc123 3000w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=3600x1800&dppx=3&auth=abc123 3600w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=4200x1800&dppx=3&auth=abc123 4200w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=4500x1800&dppx=3&auth=abc123 4500w"
+  />
+  <source
+    media="(-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.9999)"
+    sizes="(min-width: 640px) and (max-width: 989.98) 640px, (min-width: 990px) 1500px, 100vw"
+    srcSet="
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=300x600&dppx=1&auth=abc123 300w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=400x600&dppx=1&auth=abc123 400w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=500x600&dppx=1&auth=abc123 500w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=600x600&dppx=1&auth=abc123 600w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=700x600&dppx=1&auth=abc123 700w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=800x600&dppx=1&auth=abc123 800w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=900x600&dppx=1&auth=abc123 900w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1000x600&dppx=1&auth=abc123 1000w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1200x600&dppx=1&auth=abc123 1200w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1400x600&dppx=1&auth=abc123 1400w,
+https://test.com/api/2/img/http://here.com/logo.png/fit?size=1500x600&dppx=1&auth=abc123 1500w"
   />
   <source
     media="(-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 2.9999) and (min-width: 990px)"

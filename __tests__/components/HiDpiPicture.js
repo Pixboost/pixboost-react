@@ -36,8 +36,8 @@ describe ('HiDpiPicture', () => {
         <HiDpiPicture alt="YO"
           config={testConfig}
           breakpoints={{
-            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
             md: {width: '640px', op: 'resize?size={WIDTH}'},
+            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
             lg: {width: '1500px', op: 'resize?size={WIDTH}'}
           }}
           minWidth={300}
