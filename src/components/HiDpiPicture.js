@@ -4,15 +4,15 @@ import {prepareSource} from '../util';
 
 function srcSetAttr(bp, widths, dppx, config, src) {
   const imageHeight = dppx * bp.height;
-  const query = `${bp.op.includes('?') ? '&' : '?'}dppx=${dppx}&auth=${config.apiKey}`
+  const query = `${bp.op.includes('?') ? '&' : '?'}dppx=${dppx}&auth=${config.apiKey}`;
   const scheme = config.domain.includes('//') ? '' : '//';
 
   return widths.reduce((srcSet, w) => {
-    const imageWidth = w * dppx
+    const imageWidth = w * dppx;
     const op = `${bp.op.replace('{WIDTH}', imageWidth).replace('{HEIGHT}', imageHeight)}`;
 
-    return `${srcSet}${srcSet.length !== 0 ? ',' : ''}\n${scheme}${config.domain}/api/2/img/${prepareSource(src)}/${op}${query} ${imageWidth}w`
-  }, '')
+    return `${srcSet}${srcSet.length !== 0 ? ',' : ''}\n${scheme}${config.domain}/api/2/img/${prepareSource(src)}/${op}${query} ${imageWidth}w`;
+  }, '');
 }
 
 function sizesAttr(breakpoints, config) {
@@ -44,7 +44,7 @@ function sizesAttr(breakpoints, config) {
       newSizes += breakpoints[bpKey]['width'];
 
       return newSizes;
-    }, '')
+    }, '');
 }
 
 function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgProps, lazy}) {
@@ -69,7 +69,7 @@ function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgPro
       const bp = breakpoints[bpKey];
 
       if (!bpConfig) {
-        throw new Error(`could not find breakpoint [${bpKey}] in the config`)
+        throw new Error(`could not find breakpoint [${bpKey}] in the config`);
       }
 
       let bpConfigMedia = '';
@@ -92,7 +92,7 @@ function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgPro
           srcSet={srcSetAttr(bp, sizes, 1, config, src)}
           sizes={sizesAttr(breakpoints, config)}
         />
-      </React.Fragment>
+      </React.Fragment>;
     })}
     <img
       alt={alt}
@@ -100,7 +100,7 @@ function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgPro
       {...imgProps}
       {...(lazy && {loading: 'lazy'})}
     />
-  </picture>
+  </picture>;
 }
 
 HiDpiPicture.propTypes = {
@@ -116,6 +116,6 @@ HiDpiPicture.propTypes = {
   maxWidth: PropTypes.number.isRequired,
   imgProps: PropTypes.object,
   lazy: PropTypes.bool
-}
+};
 
-export {HiDpiPicture}
+export {HiDpiPicture};

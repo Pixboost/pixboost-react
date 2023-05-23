@@ -17,15 +17,15 @@ describe ('HiDpiPicture', () => {
     expect(
       renderer.create(
         <HiDpiPicture alt="YO"
-                 config={testConfig}
-                 breakpoints={{
-                   sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
-                   md: {width: '640px', op: 'resize?size={WIDTH}'},
-                   lg: {width: '1500px', op: 'resize?size={WIDTH}'}
-                 }}
-                 minWidth={300}
-                 maxWidth={1500}
-                 src="//here.com/logo.png"
+          config={testConfig}
+          breakpoints={{
+            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
+            md: {width: '640px', op: 'resize?size={WIDTH}'},
+            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+          }}
+          minWidth={300}
+          maxWidth={1500}
+          src="//here.com/logo.png"
         />
       )).toMatchSnapshot();
   });
@@ -34,16 +34,16 @@ describe ('HiDpiPicture', () => {
     expect(
       renderer.create(
         <HiDpiPicture alt="YO"
-                 config={testConfig}
-                 breakpoints={{
-                   sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
-                   md: {width: '640px', op: 'resize?size={WIDTH}'},
-                   lg: {width: '1500px', op: 'resize?size={WIDTH}'}
-                 }}
-                 minWidth={300}
-                 maxWidth={1500}
-                 src="//here.com/logo.png"
-                 lazy
+          config={testConfig}
+          breakpoints={{
+            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
+            md: {width: '640px', op: 'resize?size={WIDTH}'},
+            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+          }}
+          minWidth={300}
+          maxWidth={1500}
+          src="//here.com/logo.png"
+          lazy
         />
       )).toMatchSnapshot();
   });
@@ -52,19 +52,19 @@ describe ('HiDpiPicture', () => {
     expect(
       renderer.create(
         <HiDpiPicture alt="YO"
-                 config={testConfig}
-                 breakpoints={{
-                   sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
-                   md: {width: '640px', op: 'resize?size={WIDTH}'},
-                   lg: {width: '1500px', op: 'resize?size={WIDTH}'}
-                 }}
-                 minWidth={300}
-                 maxWidth={1500}
-                 src="//here.com/logo.png"
-                 imgProps={{
-                   width: 100,
-                   height: 200
-                 }}
+          config={testConfig}
+          breakpoints={{
+            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
+            md: {width: '640px', op: 'resize?size={WIDTH}'},
+            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+          }}
+          minWidth={300}
+          maxWidth={1500}
+          src="//here.com/logo.png"
+          imgProps={{
+            width: 100,
+            height: 200
+          }}
         />
       )).toMatchSnapshot();
   });
@@ -73,19 +73,19 @@ describe ('HiDpiPicture', () => {
     expect(
       renderer.create(
         <HiDpiPicture alt="YO"
-                 config={testConfig}
-                 breakpoints={{
-                   sm: {width: '100vw', op: 'optimise'},
-                   md: {width: '640px', op: 'asis'},
-                   lg: {width: '1500px', op: 'resize?size={WIDTH}'}
-                 }}
-                 minWidth={300}
-                 maxWidth={1500}
-                 src="//here.com/logo.png"
-                 imgProps={{
-                   width: 100,
-                   height: 200
-                 }}
+          config={testConfig}
+          breakpoints={{
+            sm: {width: '100vw', op: 'optimise'},
+            md: {width: '640px', op: 'asis'},
+            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+          }}
+          minWidth={300}
+          maxWidth={1500}
+          src="//here.com/logo.png"
+          imgProps={{
+            width: 100,
+            height: 200
+          }}
         />
       )).toMatchSnapshot();
   });
@@ -94,19 +94,19 @@ describe ('HiDpiPicture', () => {
     expect(() => {
       renderer.create(
         <HiDpiPicture alt="YO"
-                      config={testConfig}
-                      breakpoints={{
-                        whatisthis: {width: '100vw', op: 'optimise'},
-                      }}
-                      minWidth={300}
-                      maxWidth={1500}
-                      src="//here.com/logo.png"
-                      imgProps={{
-                        width: 100,
-                        height: 200
-                      }}
+          config={testConfig}
+          breakpoints={{
+            whatisthis: {width: '100vw', op: 'optimise'},
+          }}
+          minWidth={300}
+          maxWidth={1500}
+          src="//here.com/logo.png"
+          imgProps={{
+            width: 100,
+            height: 200
+          }}
         />
-      )
-    }).toThrow('could not find breakpoint [whatisthis] in the config')
+      );
+    }).toThrow('could not find breakpoint [whatisthis] in the config');
   });
 });
