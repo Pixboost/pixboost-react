@@ -19,9 +19,14 @@ describe ('HiDpiPicture', () => {
         <HiDpiPicture alt="YO"
           config={testConfig}
           breakpoints={{
-            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
-            md: {width: '640px', op: 'resize?size={WIDTH}'},
-            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+            sm: {op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
+            md: {op: 'resize?size={WIDTH}'},
+            lg: {op: 'resize?size={WIDTH}'}
+          }}
+          sizes={{
+            sm: '100vw',
+            md: '640px',
+            lg: '1500px'
           }}
           minWidth={300}
           maxWidth={1500}
@@ -36,13 +41,18 @@ describe ('HiDpiPicture', () => {
         <HiDpiPicture alt="YO"
           config={testConfig}
           breakpoints={{
-            md: {width: '640px', op: 'resize?size={WIDTH}'},
-            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
-            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+            md: {op: 'resize?size={WIDTH}'},
+            sm: {op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
+            lg: {op: 'resize?size={WIDTH}'}
           }}
           minWidth={300}
           maxWidth={1500}
           src="//here.com/logo.png"
+          sizes={{
+            md: '640px',
+            sm: '100vw',
+            lg: '1500px'
+          }}
           lazy
         />
       )).toMatchSnapshot();
@@ -54,9 +64,9 @@ describe ('HiDpiPicture', () => {
         <HiDpiPicture alt="YO"
           config={testConfig}
           breakpoints={{
-            sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
-            md: {width: '640px', op: 'resize?size={WIDTH}'},
-            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+            sm: {op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
+            md: {op: 'resize?size={WIDTH}'},
+            lg: {op: 'resize?size={WIDTH}'}
           }}
           minWidth={300}
           maxWidth={1500}
@@ -64,6 +74,11 @@ describe ('HiDpiPicture', () => {
           imgProps={{
             width: 100,
             height: 200
+          }}
+          sizes={{
+            sm: '100vw',
+            md: '640px',
+            lg: '1500px'
           }}
         />
       )).toMatchSnapshot();
@@ -75,9 +90,9 @@ describe ('HiDpiPicture', () => {
         <HiDpiPicture alt="YO"
           config={testConfig}
           breakpoints={{
-            sm: {width: '100vw', op: 'optimise'},
-            md: {width: '640px', op: 'asis'},
-            lg: {width: '1500px', op: 'resize?size={WIDTH}'}
+            sm: {op: 'optimise'},
+            md: {op: 'asis'},
+            lg: {op: 'resize?size={WIDTH}'}
           }}
           minWidth={300}
           maxWidth={1500}
@@ -85,6 +100,11 @@ describe ('HiDpiPicture', () => {
           imgProps={{
             width: 100,
             height: 200
+          }}
+          sizes={{
+            sm: '100vw',
+            md: '640px',
+            lg: '1500px'
           }}
         />
       )).toMatchSnapshot();
@@ -96,7 +116,7 @@ describe ('HiDpiPicture', () => {
         <HiDpiPicture alt="YO"
           config={testConfig}
           breakpoints={{
-            whatisthis: {width: '100vw', op: 'optimise'},
+            whatisthis: {op: 'optimise'},
           }}
           minWidth={300}
           maxWidth={1500}
@@ -104,6 +124,9 @@ describe ('HiDpiPicture', () => {
           imgProps={{
             width: 100,
             height: 200
+          }}
+          sizes={{
+            whatisthis: '100vw'
           }}
         />
       );

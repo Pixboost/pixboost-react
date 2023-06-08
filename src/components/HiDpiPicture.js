@@ -15,8 +15,8 @@ function srcSetAttr(bp, widths, dppx, config, src) {
   }, '');
 }
 
-function sizesAttr(breakpoints, config) {
-  return Object.keys(breakpoints).
+function sizesAttr(sizesConfig, config) {
+  return Object.keys(sizesConfig).
     // A breakpoint without media query must go last
     sort((bp1, bp2) => {
       const media1 = config.breakpoints[bp1]['media'];
@@ -31,8 +31,8 @@ function sizesAttr(breakpoints, config) {
 
       return 0;
     }).
-    reduce((sizes, bpKey) => {
-      let newSizes = sizes;
+    reduce((sizesAcc, bpKey) => {
+      let newSizes = sizesAcc;
       if (newSizes.length > 0) {
         newSizes += ', ';
       }
@@ -41,16 +41,16 @@ function sizesAttr(breakpoints, config) {
       if (mediaQuery) {
         newSizes += `${mediaQuery} `;
       }
-      newSizes += breakpoints[bpKey]['width'];
+      newSizes += sizesConfig[bpKey];
 
       return newSizes;
     }, '');
 }
 
-function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgProps, lazy}) {
-  const sizes = [];
+function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgProps, lazy, sizes}) {
+  const widths = [];
   for (let s = minWidth; s < maxWidth; ) {
-    sizes.push(s);
+    widths.push(s);
     if (s < 1000) {
       s += 100;
     } else {
@@ -61,7 +61,7 @@ function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgPro
       s = maxWidth;
     }
   }
-  sizes.push(maxWidth);
+  widths.push(maxWidth);
 
   return <picture>
     {Object.keys(breakpoints).map(bpKey => {
@@ -79,18 +79,18 @@ function HiDpiPicture({src, alt, config, breakpoints, minWidth, maxWidth, imgPro
       return <React.Fragment key={`${src}${bpKey}`}>
         <source
           media={`(-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 2.9999)${bpConfigMedia}`}
-          srcSet={srcSetAttr(bp, sizes, 2, config, src)}
-          sizes={sizesAttr(breakpoints, config)}
+          srcSet={srcSetAttr(bp, widths, 2, config, src)}
+          sizes={sizesAttr(sizes, config)}
         />
         <source
           media={`(-webkit-min-device-pixel-ratio: 3)${bpConfigMedia}`}
-          srcSet={srcSetAttr(bp, sizes, 3, config, src)}
-          sizes={sizesAttr(breakpoints, config)}
+          srcSet={srcSetAttr(bp, widths, 3, config, src)}
+          sizes={sizesAttr(sizes, config)}
         />
         <source
           media={`(-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.9999)${bpConfigMedia}`}
-          srcSet={srcSetAttr(bp, sizes, 1, config, src)}
-          sizes={sizesAttr(breakpoints, config)}
+          srcSet={srcSetAttr(bp, widths, 1, config, src)}
+          sizes={sizesAttr(sizes, config)}
         />
       </React.Fragment>;
     })}
@@ -108,14 +108,14 @@ HiDpiPicture.propTypes = {
   alt: PropTypes.string.isRequired,
   config: PropTypes.object.isRequired,
   breakpoints: PropTypes.objectOf(PropTypes.shape({
-    width: PropTypes.string.isRequired,
     op: PropTypes.string.isRequired,
     height: PropTypes.number
   })).isRequired,
   minWidth: PropTypes.number.isRequired,
   maxWidth: PropTypes.number.isRequired,
   imgProps: PropTypes.object,
-  lazy: PropTypes.bool
+  lazy: PropTypes.bool,
+  sizes: PropTypes.objectOf(PropTypes.string.isRequired)
 };
 
 export {HiDpiPicture};
