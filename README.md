@@ -30,6 +30,10 @@ Library supports React version 14+.
 
 ### Responsive images
 
+There are two types of responsive images available in the library:
+
+* Picture - 
+
 The library provides `Picture` component that will render different sizes of the image for different 
 visual breakpoints. 
 
