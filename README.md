@@ -30,12 +30,21 @@ Library supports React version 14+.
 
 ### Responsive images
 
-There are two types of responsive images available in the library:
+There are two types of responsive images components available in the library. Both implementations are using `<picture>`
+tag for [high dpi screens optimisation](https://pixboost.com/blog/optimising-images-for-high-dpi-displays/).
 
-* Picture - 
+* `HiDpiPicture` - Using combination of `srcset` and `sizes` attributes, so browser can pick the most suitable one.
+* `Picture` - Displays fixed sizes images on defined media breakpoints
 
-The library provides `Picture` component that will render different sizes of the image for different 
-visual breakpoints. 
+#### HiDpiPicture
+
+`HiDpiPicture` is a modern way of implementing responsive images using `srcset` and `sizes` attributes where we provide
+browser with variants of the image and visual size constraints to display. The browser then will make hard work for us
+and pick the best option to load and display.
+
+#### Picture
+
+`Picture` component renders different sizes of the image for different visual breakpoints. 
 
 Below is a simple example:
 
