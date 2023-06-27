@@ -42,6 +42,59 @@ tag for [high dpi screens optimisation](https://pixboost.com/blog/optimising-ima
 browser with variants of the image and visual size constraints to display. The browser then will make hard work for us
 and pick the best option to load and display.
 
+Example:
+
+```jsx
+    // Reusable configuration
+    const pixboostConfig = {
+        apiKey: 'MTg4MjMxMzM3MA__',
+        domain: 'pixboost.com',
+        breakpoints: {
+            lg: {media: '(min-width: 990px)'},
+            md: {media: '(min-width: 640px)'},
+            sm: {}
+        }
+    };
+
+    function YourComponent() {
+      return (
+              <HiDpiPicture alt="YO"
+                            config={testConfig}
+                            breakpoints={{ // operation for each breakpoint width {WIDTH} and {HEIGHT} values replaced with generated width and specified height if any
+                              sm: {op: 'fit?size={WIDTH}x{HEIGHT}', height: 600},
+                              md: {op: 'resize?size={WIDTH}'},
+                              lg: {op: 'resize?size={WIDTH}'}
+                            }}
+                            sizes={{ // image width for each breakpoint
+                              sm: '100vw',
+                              md: '640px',
+                              lg: '1500px'
+                            }}
+                            minWidth={300}  // minimum visible size of the image
+                            maxWidth={1500} // maximum visible size of the image
+                            src="//here.com/logo.png"
+              />
+      )
+    }
+```
+
+Properties (mandatory properties marked with *):
+
+| Property           | Type    | Default | Description                                                                                                                                                       | 
+|--------------------|---------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| breakpoints*       | Object  |         | Object that sets an option for each visual breakpoint. You can use only breakpoints that you specified in the configuration property                              |
+| breakpoints.op*    | String  |         | Operation to perform. By default is optimise.                                                                                                                     |
+| breakpoints.height | Number  |         | Setting the fixed height for the image on the given breakpoint                                                                                                    |
+| sizes*             | Object  |         | Object that specifies width of the image for the particular breakpoint. See [More Info](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes). |
+| minWidth*          | Number  |         |                                                                                                                                                                   |
+| maxWidth*          | Number  |         |                                                                                                                                                                   |
+| config*            | Object  |         | Configuration                                                                                                                                                     |
+| alt                | String  |         | alt text for an image                                                                                                                                             |
+| lazy               | Boolean | true    | If true, then will enable lazy loading for the picture.                                                                                                           |
+| imgProps           | Object  |         | Pass through props to `<img>` tag.                                                                                                                                |  
+
+
+
 #### Picture
 
 `Picture` component renders different sizes of the image for different visual breakpoints. 
