@@ -100,18 +100,19 @@ Example:
 
 Properties (mandatory properties marked with *):
 
-| Property           | Type    | Default | Description                                                                                                                                                       | 
-|--------------------|---------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| breakpoints*       | Object  |         | Object that sets an option for each visual breakpoint. You can use only breakpoints that you specified in the configuration property                              |
-| breakpoints.op*    | String  |         | Operation to perform. By default is `optimise`. You can use {WIDTH} and {HEIGHT} placeholders.                                                                    |
-| breakpoints.height | Number  |         | Setting the fixed height for the image on the given breakpoint                                                                                                    |
-| sizes*             | Object  |         | Object that specifies width of the image for the particular breakpoint. See [More Info](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes). |
-| minWidth*          | Number  |         |                                                                                                                                                                   |
-| maxWidth*          | Number  |         |                                                                                                                                                                   |
-| config*            | Object  |         | Configuration                                                                                                                                                     |
-| alt                | String  |         | alt text for an image                                                                                                                                             |
-| lazy               | Boolean | false   | If true, then will enable lazy loading for the image.                                                                                                             |
-| imgProps           | Object  |         | Pass through props to `<img>` tag.                                                                                                                                |  
+| Property           | Type     | Default | Description                                                                                                                                                       | 
+|--------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| src*               | String   |         | Source url or path with alias to the source image.                                                                                                                |
+| breakpoints*       | Object   |         | Object that sets an option for each visual breakpoint. You can use only breakpoints that you specified in the configuration property                              |
+| breakpoints.op*    | String   |         | Operation to perform. By default is `optimise`. You can use {WIDTH} and {HEIGHT} placeholders.                                                                    |
+| breakpoints.height | Number   |         | Setting the fixed height for the image on the given breakpoint                                                                                                    |
+| sizes*             | Object   |         | Object that specifies width of the image for the particular breakpoint. See [More Info](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes). |
+| minWidth*          | Number   |         |                                                                                                                                                                   |
+| maxWidth*          | Number   |         |                                                                                                                                                                   |
+| config*            | Object   |         | Configuration                                                                                                                                                     |
+| alt*               | String   |         | alt text for an image                                                                                                                                             |
+| lazy               | Boolean  | false   | If true, then will enable lazy loading for the image.                                                                                                             |
+| imgProps           | Object   |         | Pass through props to `<img>` tag.                                                                                                                                |  
 
 
 
