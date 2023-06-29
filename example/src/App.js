@@ -28,13 +28,17 @@ class App extends Component {
                     <HiDpiPicture
                       alt={'coffee machine'}
                       breakpoints={{
-                          lg: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 1200},
-                          sm: {width: '100vw', op: 'fit?size={WIDTH}x{HEIGHT}', height: 600}
+                          lg: {op: 'fit?size={WIDTH}x{HEIGHT}', height: 1200},
+                          sm: {op: 'fit?size={WIDTH}x{HEIGHT}', height: 600}
                       }}
                       config={pixboostConfig}
                       src="http://www.midday.coffee/assets/banner2.jpg"
                       minWidth={300}
                       maxWidth={3000}
+                      sizes={{
+                        lg: '100vw',
+                        sm: '100vw'
+                      }}
                     />
                     <div className="text">
                         <p className="h1 display-4">Find Your Coffee Cup</p>
