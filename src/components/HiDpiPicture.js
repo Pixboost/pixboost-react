@@ -11,7 +11,7 @@ function srcSetAttr(bp, widths, dppx, config, src) {
     const imageWidth = w * dppx;
     const op = `${bp.op.replace('{WIDTH}', imageWidth).replace('{HEIGHT}', imageHeight)}`;
 
-    return `${srcSet}${srcSet.length !== 0 ? ',' : ''}\n${scheme}${config.domain}/api/2/img/${prepareSource(src)}/${op}${query} ${imageWidth}w`;
+    return `${srcSet}${srcSet.length !== 0 ? ',' : ''}${scheme}${config.domain}/api/2/img/${prepareSource(src)}/${op}${query} ${imageWidth}w`;
   }, '');
 }
 
